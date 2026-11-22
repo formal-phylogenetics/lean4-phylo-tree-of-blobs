@@ -69,7 +69,7 @@ theorem measure_setOf_eq_zero_of_absolutelyContinuous_dirac_add {μ : Measure �
     (hμ : μ ≪ Measure.dirac 0 + volume) {g : ℝ → E} (hg : AnalyticOnNhd ℝ g univ)
     (h₀ : g 0 ≠ 0) : μ {t | g t = 0} = 0 := by
   refine hμ ?_
-  rw [Measure.add_apply, (hg.countable_setOf_eq_zero h₀).measure_zero volume, add_zero,
+  rw [add_apply, (hg.countable_setOf_eq_zero h₀).measure_zero volume, add_zero,
     Measure.dirac_apply, indicator_of_notMem (by simpa using h₀)]
 
 /-- A set in a product is null if almost all of its slices in the second coordinate are null. -/

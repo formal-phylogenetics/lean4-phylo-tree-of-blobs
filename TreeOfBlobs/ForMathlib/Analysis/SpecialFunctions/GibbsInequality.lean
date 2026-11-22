@@ -38,7 +38,7 @@ theorem prod_pow_le_prod_div_pow {ι : Type*} [Fintype ι] (m : ι → ℕ) {p :
       have hpow : (p i / q) ^ m i ≤ exp (p i / q - 1) ^ m i :=
         pow_le_pow_left₀ (div_nonneg (hp i) hq.le) hx _
       have hexp : exp (p i / q - 1) ^ m i = exp (N * p i - m i) := by
-        rw [← exp_nat_mul]
+        rw [← exp_natCast_mul]
         congr 1
         rw [hqdef]
         field_simp

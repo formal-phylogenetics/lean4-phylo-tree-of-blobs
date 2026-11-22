@@ -306,7 +306,7 @@ private theorem card_nodePairs {T P : Finset (Finset X)} (hS : IsSplitFamily T) 
     have hsup : ∀ t, t ∈ (insert ((blockOf P y).erase y) (otherBlocks P x y)).sup id ↔
         t ≠ y ∧ t ∉ blockOf P x := by
       intro t
-      rw [Finset.sup_insert, id, Finset.sup_eq_union, Finset.mem_union, mem_sup_otherBlocks hV,
+      rw [Finset.sup_insert, id, Finset.mem_union, mem_sup_otherBlocks hV,
         Finset.mem_erase]
       constructor
       · rintro (⟨hty, htB⟩ | hJ)

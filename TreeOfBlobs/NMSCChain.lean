@@ -161,7 +161,7 @@ theorem injDist_atRoot (hN : N.IsPhylogenetic) (hθ : N.IsNormalized θ) (hρ : 
         have hFr := frontier_of_prod_ne_zero hN hv hD hw
         have htop : ∀ e, top e = ∅ := fun e => by
           by_contra hne
-          obtain ⟨A, hA⟩ := nonempty_iff_ne_empty.2 hne
+          obtain ⟨A, hA⟩ := ne_empty_iff_nonempty.symm.2 hne
           have het : N.graph.target e ∈ univ.erase N.root :=
             mem_erase.2 ⟨target_ne_root hN e, mem_univ _⟩
           obtain ⟨x, hx⟩ := (hFr.good_top e het).1.1 A hA

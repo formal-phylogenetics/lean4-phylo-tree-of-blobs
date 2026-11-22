@@ -13,12 +13,12 @@ maxSynthPendingDepth = 3
 [[require]]
 name = "Phylogenetics"
 git = "https://github.com/vltanh/lean4-phylogenetics"
-rev = "8c66a1354fc32f0e59ee22634916b154eebb54ee"
+rev = "4daee158d74436ce6ed6f52e337ba00f1b43ea32"
 
 [[require]]
 name = "mathlib"
 scope = "leanprover-community"
-rev = "v4.36.0-rc1"
+rev = "v4.37.0-rc1"
 
 # Every module of this repository is under TreeOfBlobs/ (lean4-phylogenetics, docs/CONVENTIONS.md).
 [[lean_lib]]

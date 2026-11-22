@@ -139,7 +139,7 @@ theorem isTreelike_of_hasCutSplitOn {Y P : Finset X} (hY : Y.card = 4) (hPY : P 
       · rw [mem_singleton.mp hC, mem_singleton.mp hD] at hCD
         exact absurd rfl hCD⟩
   have hs : s.taxa = Y := by
-    simp only [QuartetTree.taxa, s, sup_insert, sup_singleton, id, sup_eq_union]
+    simp only [QuartetTree.taxa, s, sup_insert, sup_singleton, id]
     exact union_sdiff_of_subset hPY
   refine ⟨s, by simp [treesOn, hs], P, by simp [s], ?_⟩
   rw [hs]

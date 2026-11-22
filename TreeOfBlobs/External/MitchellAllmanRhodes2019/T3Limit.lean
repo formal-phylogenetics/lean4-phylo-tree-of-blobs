@@ -349,7 +349,6 @@ theorem t3Tail_one_eq (m t : ℝ) :
   have hset : ({z | t < t3Var 1 z} : Set (ℝ × ℝ)) =ᵐ[stdPlane]
       {z | t < halfLineDist (1 / 2) (√3 / 2) z} := by
     filter_upwards [t3Var_one_ae_eq] with z hz
-    apply propext
     rw [hz]
   rw [t3Tail, muZero_one, measureReal_def, measureReal_def]
   exact congrArg ENNReal.toReal (measure_congr hset)

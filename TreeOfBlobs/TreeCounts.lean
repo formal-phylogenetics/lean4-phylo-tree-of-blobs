@@ -122,7 +122,7 @@ theorem nonempty_of_mem_isUnrootedTree {B : Finset (Finset X)} (hB : IsUnrootedT
     intro C hC
     obtain ⟨h1, h2⟩ := mem_erase.mp hC
     refine ⟨hH.2.2.1 C h2, ?_⟩
-    rw [nonempty_iff_ne_empty, Ne, compl_eq_empty_iff]
+    rw [ne_empty_iff_nonempty.symm, Ne, compl_eq_empty_iff]
     exact h1
   rcases mem_union.mp hA with h | h
   · exact key A h
@@ -168,7 +168,7 @@ theorem mem_childClusters_univ_iff (hH : IsHierarchy H) (h2 : 2 ≤ Fintype.card
     obtain ⟨C₁, C₂, hne, hC⟩ := card_eq_two.mp hbin
     have hsup := hH.sup_childClusters huniv
     rw [hC] at hsup
-    simp only [sup_insert, sup_singleton, id, sup_eq_union] at hsup
+    simp only [sup_insert, sup_singleton, id] at hsup
     have hdis : Disjoint C₁ C₂ := hH.disjoint_of_mem_childClusters (hC ▸ mem_insert_self _ _)
       (hC ▸ mem_insert_of_mem (mem_singleton_self _)) hne
     have hC₁H : C₁ ∈ H := (mem_childClusters.mp (hC ▸ mem_insert_self _ _)).1

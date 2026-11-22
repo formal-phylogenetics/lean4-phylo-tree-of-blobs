@@ -57,7 +57,7 @@ theorem displays_of_cluster {c : N.ParentChoice} {s : QuartetTree X}
   obtain ⟨y, hy⟩ : (s.taxa \ P).Nonempty :=
     card_pos.1 (by rw [s.card_of_mem (s.sdiff_mem hP)]; omega)
   obtain ⟨hyq, hyP⟩ := mem_sdiff.1 hy
-  refine ⟨_, mem_unroot.2 (Or.inl ⟨mem_displayedClusters.2 ⟨nonempty_iff_ne_empty.1 ⟨a, hb a ha⟩, u, rfl⟩,
+  refine ⟨_, mem_unroot.2 (Or.inl ⟨mem_displayedClusters.2 ⟨ne_empty_iff_nonempty.symm.1 ⟨a, hb a ha⟩, u, rfl⟩,
     fun h => hn y hyq hyP (h ▸ mem_univ y)⟩), ?_⟩
   rw [hAq]
   exact hP

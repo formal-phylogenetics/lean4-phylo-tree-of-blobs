@@ -36,8 +36,8 @@ The user supplied `ectob_supp.pdf` (6 pages) and `tob-qmc_supp.pdf` (43 pages) f
 
 - Public repository [`vltanh/lean4-tob`](https://github.com/vltanh/lean4-tob); branch `main`, named `formalize/tree-of-blobs` until 2026-11-04. No draft existed. The first rounds of work were made with Codex; `CREDITS.md` has the rounds. Since 2026-11-21 it is the hub of the four papers, each in a repository of its own.
 - Layout: the Lean code is in `TreeOfBlobs/`, the documents other than the `README` in `docs/`, the catalog of the papers in `catalog/`, and the checks in `scripts/`. Until 2026-11-21 the code of the four papers was in `src/`, with `srcDir` in `lakefile.toml`, and each paper's files for a possible Palomar submission were in `papers/<Paper>/palomar/`; they are now in the paper's repository.
-- Lean and Mathlib `v4.36.0-rc1`, Mathlib commit `625d8914199bc567cca9b91f90e8e5afafa5ae51`.
-- Lean `v4.36.0-rc2` was released on 2026-10-27, but the corresponding Mathlib release tag returned 404 during setup. Thus rc1 is the newest verified matched pair.
+- Lean and Mathlib `v4.37.0-rc1`, Mathlib commit `31ce06eaadf4a200c0e1407c5f10953cf606b8f8`, since 2026-11-21.
+- Before that, Lean and Mathlib `v4.36.0-rc1`, Mathlib commit `625d8914199bc567cca9b91f90e8e5afafa5ae51`: Lean `v4.36.0-rc2` was released on 2026-10-27, but the corresponding Mathlib release tag returned 404 during setup, so rc1 was the newest verified matched pair.
 - Palomar's current minimum is `v4.35.0-rc2`; the selected toolchain exceeds it.
 - Mathlib and Verso rc1 share `plausible` and `Cli`; both revisions match.
 - The initial dependency cache was copied into this checkout from an existing local checkout at the same pinned release. No symlinks or shared mutable build directory are used.
@@ -58,7 +58,7 @@ License: Apache-2.0. Git identity: The-Anh Vu-Le. AI systems are credited as too
 
 On 2026-10-31 the user asked this project to import the library [`lean4-phylogenetics`](https://github.com/vltanh/lean4-phylogenetics), which holds definitions and general results, in place of its own general layer. What the papers prove stays in this hub and the papers' repositories: `TreeOfBlobs/Defs.lean` has the algorithms and the standing assumptions, `TreeOfBlobs/Testing/` and `TreeOfBlobs/ForMathlib/` have the hypothesis tests and the analysis behind them, the papers' libraries have their results, and `TreeOfBlobs/External/` and the papers' `External/` folders have what they cite from other papers. `TreeOfBlobs/General.lean` has general results that can move to the library.
 
-The library is required by commit, `f1a3592`, from GitHub (`lakefile.toml`). `lake build` builds only the modules of the library that this repository imports; the audit reads all of them, so it also needs `lake build Phylogenetics`.
+The library is required by commit, `4daee15`, from GitHub (`lakefile.toml`). `lake build` builds only the modules of the library that this repository imports; the audit reads all of them, so it also needs `lake build Phylogenetics`.
 
 ## Palomar
 

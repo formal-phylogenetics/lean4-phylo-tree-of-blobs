@@ -172,7 +172,6 @@ theorem gaussianReal_prod_split {k₁ k₂ : ℝ} (h : k₁ ≠ 0 ∨ k₂ ≠ 0
     rw [ae_iff]
     simpa using gaussianReal_prod_line_null h m₁ m₂
   filter_upwards [hne] with z hz
-  apply propext
   simp only [Set.mem_sdiff, mem_inter_iff, mem_ofPred_eq, not_lt]
   constructor
   · exact fun hh => ⟨hh.1, lt_of_le_of_ne hh.2 hz⟩
