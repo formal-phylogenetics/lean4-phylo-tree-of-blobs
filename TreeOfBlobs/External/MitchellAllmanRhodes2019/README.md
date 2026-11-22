@@ -35,7 +35,7 @@ papers use:
 * `QuartetTests.t3Var_density`, also `External.MitchellAllmanRhodes2019.proposition4_2` (`T3Density.lean`), Proposition 4.2: the printed
   density, `t3Density`, is that of the law of `t3Var φ`. The source states it for `φ₀ ∈ (0, 1]`; it holds for `φ₀ < 3/2`. This proof
   follows the source's Appendix B: the same strips, the same reflection, differentiation in polar coordinates and the substitution
-  `y = x tan β`, with `Basic/ForMathlib/Probability/GaussianStrip.lean` packaging what is in `GaussianPlane.lean`. What the source says of
+  `y = x tan β`, with `TreeOfBlobs/ForMathlib/Probability/GaussianStrip.lean` packaging what is in `GaussianPlane.lean`. What the source says of
   the density is also proved: at the singularity, `t3Density_one`; the limit `χ²₁` as `n → ∞`, `tendsto_t3Density_atTop`; continuity in
   `φ₀`, `continuousOn_t3Density`, on `(0, 3/2)`, where the source writes `[0, 1)`.
 * `External.MitchellAllmanRhodes2019.proposition5_1` and `proposition5_2` (`T1Limit.lean`), the same two propositions for model T1:
@@ -46,8 +46,8 @@ papers use:
   `(1 / 2π) exp (-x² / 2) √(2π) ½ (1 + erf (μ₀ / √2))`. It also calls `x` the distance to the mean, where it is the distance to the half-line.
   The fitted T1 p-value at the boundary point is not asymptotically uniform (`t1PValue_centroid_not_asymptoticallyUniform`), and with the
   true parameter it is (`t1Tail_t1Stat_asymptoticallyUniform`).
-* The T1 test, in `src/Basic/Testing/Trinomial/Tests.lean` of the library (`tendsto_t1`, `centroid_tight`), and from
-  there `Phylogenetics.QuartetTests` in `src/Basic/Testing/Limits.lean`: under the null off its
+* The T1 test, in `TreeOfBlobs/Testing/Trinomial/Tests.lean` (`tendsto_t1`, `centroid_tight`), and from
+  there `Phylogenetics.QuartetTests` in `TreeOfBlobs/Testing/Limits.lean`: under the null off its
   boundary the p-value of the source's §6 is asymptotically uniform, and at the centroid it stays away
   from `0` and `1`.
 
@@ -55,7 +55,7 @@ The source was read, in its arXiv version (arXiv:1806.08458v1, the TeX and the P
 was not compared.
 
 Apart from Propositions 4.2 and 5.2, the proofs do not follow the source's route: the frequencies, whitened and centred
-(`Phylogenetics.Trinomial.sampleW`), converge to two independent normals (`src/Basic/Testing/Trinomial/CLT.lean`,
+(`Phylogenetics.Trinomial.sampleW`), converge to two independent normals (`TreeOfBlobs/Testing/Trinomial/CLT.lean`,
 `Whiten.lean`), and each statistic is close to a squared distance, uniformly on bounded sets of the
 whitened frequencies, by the second-order expansion of `x log x`
-(`src/Basic/ForMathlib/Analysis/SpecialFunctions/EntropyExcess.lean`, `src/Basic/Testing/Trinomial/Statistics.lean`).
+(`TreeOfBlobs/ForMathlib/Analysis/SpecialFunctions/EntropyExcess.lean`, `TreeOfBlobs/Testing/Trinomial/Statistics.lean`).

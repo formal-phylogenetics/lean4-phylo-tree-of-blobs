@@ -72,7 +72,7 @@ The cited sources are proved where they are used: in the repository of the paper
 | --- | --- | --- | --- |
 | Mitchell, Allman, Rhodes 2019 | Theorem 3.1 for the trinomial cut model; the limit laws and densities of the T3 and T1 tests (Propositions 4.1, 4.2, 5.1, 5.2) | TINNiK, TOB-QMC, ECToBlob | [`MitchellAllmanRhodes2019`](TreeOfBlobs/External/MitchellAllmanRhodes2019) |
 | Rhodes 2020 | Theorem 2: the quartet distance is a tree metric with the same topology | TINNiK, Allman et al. 2023 | [`Rhodes2020`](TreeOfBlobs/External/Rhodes2020) |
-| Allman, Baños, Rhodes 2019 (NANUQ) | Proposition 9; Theorem 36, corrected | ECToBlob, TINNiK, Allman et al. 2023 | [`AllmanBanosRhodes2019`](https://github.com/vltanh/lean4-nanuq/tree/main/Nanuq) |
+| Allman, Baños, Rhodes 2019 (NANUQ) | Proposition 9; Theorem 36, corrected | ECToBlob, TINNiK, Allman et al. 2023 | [`Nanuq`](https://github.com/vltanh/lean4-nanuq/tree/main/Nanuq) |
 | Ané et al. 2024 | Exchangeability across a cut edge; Proposition 12; rule 2 of its Section 3.3 | TOB-QMC, ECToBlob | [`AneEtAl2024`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC/External/AneEtAl2024) |
 | Huber et al. 2025 | Theorem 5.1, both directions | TOB-QMC | [`HuberEtAl2025`](TreeOfBlobs/External/HuberEtAl2025) |
 | Dinh, Baños 2025 | Theorem 1 and Corollary 2 | TOB-QMC, ECToBlob | [`DinhBanos2025`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC/External/DinhBanos2025) |
@@ -80,7 +80,7 @@ The cited sources are proved where they are used: in the repository of the paper
 | Legried et al. 2021 | Theorem 1 on quartets | ECToBlob | [`LegriedEtAl2021`](https://github.com/vltanh/lean4-ectoblob/tree/main/ECToBlob/External/LegriedEtAl2021) |
 | Studier, Keppler 1988 | Their Lemma fails at a polytomy; their theorem holds with polytomies, in the library | TINNiK | [`StudierKeppler1988`](https://github.com/vltanh/lean4-tinnik/tree/main/TINNiK/External/StudierKeppler1988) |
 
-Allman et al. 2023 is both a paper of the collection and a source of the three later papers. The standard definitions and results of phylogenetics, among them networks, trees and their splits, the network multispecies coalescent, Kingman's coalescent with Tavaré's formula, neighbor joining and ASTRAL's dynamic program, are in the library [lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics), which this project imports. So is the Splits Equivalence Theorem of Semple, Steel 2003, whose uniqueness half Allman et al. 2023 uses ([`Phylogenetics.SplitsEquivalence.xTree_unique`](https://github.com/vltanh/lean4-phylogenetics/blob/f1a3592dee6e3f7d5e7a68a0695ac457de23d2de/Phylogenetics/Tree/SplitsEquivalence.lean#L604)).
+Allman et al. 2023 is both a paper of the collection and a source of the three later papers. The standard definitions and results of phylogenetics, among them networks, trees and their splits, the network multispecies coalescent, Kingman's coalescent with Tavaré's formula, neighbor joining and ASTRAL's dynamic program, are in the library [lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics), which this repository and the papers' repositories import. So is the Splits Equivalence Theorem of Semple, Steel 2003, whose uniqueness half Allman et al. 2023 uses ([`Phylogenetics.SplitsEquivalence.xTree_unique`](https://github.com/vltanh/lean4-phylogenetics/blob/f1a3592dee6e3f7d5e7a68a0695ac457de23d2de/Phylogenetics/Tree/SplitsEquivalence.lean#L604)).
 
 ## The shared library
 

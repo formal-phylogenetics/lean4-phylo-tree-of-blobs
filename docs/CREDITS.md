@@ -1,6 +1,6 @@
 # Credits
 
-How this formalization was made, from the run log and the session transcripts. On 2026-11-04 Gusfield et al. 2007, which the rounds below formalized here, moved to a repository of its own, [lean4-gusfield2007](https://github.com/vltanh/lean4-gusfield2007), whose [credits](https://github.com/vltanh/lean4-gusfield2007/blob/main/docs/CREDITS.md) summarize its part.
+How this formalization was made, from the run log and the session transcripts. On 2026-11-04 Gusfield et al. 2007, which the rounds below formalized here, moved to a repository of its own, [lean4-gusfield2007](https://github.com/vltanh/lean4-gusfield2007), whose [credits](https://github.com/vltanh/lean4-gusfield2007/blob/main/docs/CREDITS.md) summarize its part. On 2026-11-21 the four papers moved to repositories of their own, and this repository became their hub; the paths below are those of the time, which the tag `before-split` keeps.
 
 ## Who
 
@@ -33,7 +33,7 @@ How it was made:
 
 - The main session designed the shared definitions (`Basic/Phylogenetics/Defs.lean`), wrote every statement with `sorry`, and an independent agent reviewed them against the papers, finding one false definition ([`IsExactBuilder`](https://github.com/vltanh/lean4-phylogenetics/blob/f1a3592dee6e3f7d5e7a68a0695ac457de23d2de/Phylogenetics/Tree/Metric.lean#L51) excluded neighbor joining) and several readings.
 - Proof agents worked in parallel on private snapshots of the build, one set of files each: graphs and cut edges; trees and splits (ECToBlob §3, TOB-QMC §4.1–4.2); tails and combining p-values; limit laws from the central limit theorem; Proposition 6; the NMSC on arbitrary networks, resumed to prove exchangeability; the B-quartet rule, the quartet metrization and TINNiK's Theorem 4; level-1 blobs; and Theorem 8.2 with its false-edge repair.
-- The main session integrated the proofs, wrote the Challenge, Solution and audit scripts (the first two since replaced by [`src/MainResults.lean`](../README.md)), and ran the route check, cleanup and Comparator.
+- The main session integrated the proofs, wrote the Challenge, Solution and audit scripts (the first two since replaced by `src/MainResults.lean`), and ran the route check, cleanup and Comparator.
 - Two independent agents compared the proofs with the papers, one agent checked every finding of the audit against the sources by script, one researched the literature and another checked that section and the section on what comes next. Their corrections are applied. Those that changed Lean: Theorem 4 of TINNiK uses the paper's levels, Lemma 6.1 the printed bound.
 
 Figures, from 2026-10-31 07:25:55 America/Chicago to commit `b2be3ef` at 10:51:30, the commit completing [`REPORT.md`](REPORT.md):
@@ -92,8 +92,8 @@ The user asked to formalize Gusfield, Bansal, Bafna, Song 2007 and Allman, Baño
 
 - the project imports the library [`lean4-phylogenetics`](https://github.com/vltanh/lean4-phylogenetics), by commit, in place of its own general layer;
 - that library keeps only what is standard to phylogenetics, each thing acknowledged to its source, and things move upstream only when several projects use them;
-- Palomar is not a target, so there is no Challenge or Solution: main theorems are in [`src/MainResults.lean`](../README.md), since split into one module per paper in [`src/MainResults/`](../src/MainResults), the files for a possible submission are in `palomar/`, since then one entry per paper, in `papers/<Paper>/palomar/`, and the main theorems are checked by several kernels;
-- the layout has [`src/`](..) and `docs/`, and the working notes are private, in another repository;
+- Palomar is not a target, so there is no Challenge or Solution: main theorems are in `src/MainResults.lean`, since split into one module per paper in `src/MainResults/` and then moved to each paper's repository, the files for a possible submission are in `palomar/`, since then one entry per paper, in `papers/<Paper>/palomar/` and then at the root of each paper's repository, and the main theorems are checked by several kernels;
+- the layout has `src/`, until the split of 2026-11-21, and `docs/`, and the working notes are private, in another repository;
 - this repository is public.
 
 How it was made:
@@ -128,7 +128,7 @@ How it was made:
 - Nine agents worked in parallel on private snapshots of the build, one set of files each, and most were sent back for what their first report left: the limit laws and densities of the T3 and T1 tests; the integer program, Algorithms 1 and 3, the conjecture of line 590 through Klöpper's thesis, and Song and Hein, read at last; galled trees, optimality, and the algorithm with its count; line 329 at the entry node, line 299 at any node, `R¹(M_d) = 3d`, and merged blobs; Allman et al.'s outline and remaining remarks; TOB-QMC's implementation, missing taxa, running times, Kane and Tao, bridge-finding, Huber et al.'s converse, and Dinh and Baños; NANUQ's source definitions; ECToBlob's displayed tree model, Remark 3.4 and §10; and the open statements on Gusfield et al., where Theorem 10 turned out false if `R(M + S)` is read by line 385's definition.
 - One agent integrated everything: the audit's lists, the routes, a clean build and the three kernels.
 - Another brought the documents up to date, checking each claim against the Lean and the sources, and an independent agent checked those documents. Its findings on fairness to the authors are applied: Theorem 10 is graded by what the paper's own use of its symbol suggests, and Section 9's list holds only what is false.
-- After the commit below, one more agent stated the remaining counterexamples as theorems in [`src/`](..), so that five scripts, `SourceChecks`, `IndistinguishabilityCheck`, `TOBQMCGapCheck`, `SunletCheck` and `BoundaryCheck`, could go.
+- After the commit below, one more agent stated the remaining counterexamples as theorems in `src/`, so that five scripts, `SourceChecks`, `IndistinguishabilityCheck`, `TOBQMCGapCheck`, `SunletCheck` and `BoundaryCheck`, could go.
 
 Figures, from the `session_stats.py` script of the formalize-math-paper skill, from the user's request at 2026-11-01 06:58 America/Chicago to commit `282215c` at 11:34:39 -06:00, the commit that completes the proofs:
 
@@ -141,8 +141,8 @@ Figures, from the `session_stats.py` script of the formalize-math-paper skill, f
 
 From the last figures, at commit `5693efe`, to commit `282215c`, which adds the documents and the literature search of the last round: 9.50 h elapsed; sub-agents 14 (12 launched by the main session; at most 9 running at once; 10 resumptions); sub-agent work 19.7 h, 1,951 tool calls; tokens: 6.41M output, 20.70M input, 742M cache reads; main session 59 tool calls; tokens: 0.08M output, 1.06M input, 38M cache reads.
 
-At that commit: 256 modules in [`src/`](..), 147,954 lines of Lean, 8,646 jobs in a clean `lake build` with no warnings, 26,218 declarations on the standard axioms, 587 results in the audit's table, and 79 main theorems accepted by Lean's kernel, NanoDa and con-ron, one of them conditional on a computation that none of those kernels has checked.
+At that commit: 256 modules in `src/`, 147,954 lines of Lean, 8,646 jobs in a clean `lake build` with no warnings, 26,218 declarations on the standard axioms, 587 results in the audit's table, and 79 main theorems accepted by Lean's kernel, NanoDa and con-ron, one of them conditional on a computation that none of those kernels has checked.
 
 Totals for the Claude Code session, all rounds and the private follow-up work, to that commit: 29.14 h elapsed; sub-agents 85 (84 launched by the main session; at most 11 running at once; 40 resumptions); sub-agent work 76.8 h, 8,044 tool calls; tokens: 25.97M output, 82.14M input, 2,456M cache reads; main session 706 tool calls; tokens: 1.55M output, 4.25M input, 338M cache reads.
 
-At the end of this round, after those later edits: 264 modules in [`src/`](..), 149,784 lines of Lean, 8,662 jobs in `lake build` with no warnings, 26,534 declarations on the standard axioms, 598 results in the audit's table, and 90 main theorems accepted by Lean's kernel, NanoDa and con-ron, in 6:55, with con-ron at 72,580 declarations, one of them conditional on a computation that none of those kernels has checked.
+At the end of this round, after those later edits: 264 modules in `src/`, 149,784 lines of Lean, 8,662 jobs in `lake build` with no warnings, 26,534 declarations on the standard axioms, 598 results in the audit's table, and 90 main theorems accepted by Lean's kernel, NanoDa and con-ron, in 6:55, with con-ron at 72,580 declarations, one of them conditional on a computation that none of those kernels has checked.

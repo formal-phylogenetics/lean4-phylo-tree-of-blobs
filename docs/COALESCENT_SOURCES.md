@@ -1,6 +1,6 @@
 # Coalescent source extraction
 
-The paths under `Basic/Phylogenetics/` below are this repository at commit `f838ea4`. These modules have since moved to the library `lean4-phylogenetics`, which this project imports; `Challenge.lean` is gone as well (see [CONFIGURATION.md](CONFIGURATION.md)).
+The paths under `Basic/Phylogenetics/` below are this repository at commit `f838ea4`. These modules have since moved to the library `lean4-phylogenetics`, which this repository and the papers' repositories import; `Challenge.lean` is gone as well (see [CONFIGURATION.md](CONFIGURATION.md)).
 
 The public modules in `Basic/Phylogenetics/Coalescent/` are adapted from
 [vltanh/lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics), exact commit
