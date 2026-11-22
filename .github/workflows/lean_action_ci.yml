@@ -38,3 +38,8 @@ jobs:
           --accept docs/route_differences.tsv
       - name: Check the Markdown tables
         run: python3 scripts/check_md_tables.py README.md docs/REPORT.md docs/CREDITS.md
+      # The README's tables are generated from catalog/papers.toml by the root's tools.
+      - name: Check that the README is current
+        run: |
+          git clone --depth 1 https://github.com/vltanh/lean4-phylogenetics ../lean4-phylogenetics
+          python3 ../lean4-phylogenetics/scripts/status.py readme --check --repo lean4-tob

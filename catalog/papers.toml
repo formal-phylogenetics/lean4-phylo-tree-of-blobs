@@ -1,0 +1,65 @@
+# The papers of the hub lean4-tob, one repository each. The fields are those of every hub's catalog;
+# lean4-phylogenetics' docs/CONVENTIONS.md describes them, and its scripts/status.py renders the
+# README's table from this file.
+
+[[family]]
+id = 1
+title = "The tree of blobs: identifiability and consistent inference"
+
+[[paper]]
+id = "allman2023"
+family = 1
+order = 1
+authors = "Allman, Baños, Mitchell, Rhodes"
+year = "2023"
+title = "The tree of blobs of a species network: identifiability under the coalescent"
+url = "https://doi.org/10.1007/s00285-022-01838-9"
+kind = "theory"
+root = "AllmanEtAl2023"
+status = "formalized"
+commit = "1035acbad9fccbdd1bc3869b3584eaa707d49292"
+
+[[paper]]
+id = "tinnik"
+family = 1
+order = 2
+short = "TINNiK"
+authors = "Allman, Baños, Mitchell, Rhodes"
+year = "2024"
+title = "TINNiK: inference of the tree of blobs of a species network under the coalescent model"
+url = "https://doi.org/10.1186/s13015-024-00266-2"
+kind = "method"
+root = "TINNiK"
+status = "formalized"
+commit = "259a1295d22a51e7a8680c5928f96563669af3b5"
+builds_on = ["allman2023"]
+
+[[paper]]
+id = "tob-qmc"
+family = 1
+order = 3
+short = "TOB-QMC"
+authors = "Dai, Han, Molloy"
+year = "2026"
+title = "Quartet-based species tree methods enable fast and consistent tree of blobs reconstruction under the network multispecies coalescent"
+url = "https://doi.org/10.1101/2025.11.05.686850"
+kind = "method"
+root = "TOBQMC"
+status = "formalized"
+commit = "1dce84e103e1829dfe360abba62d4180959cf730"
+builds_on = ["allman2023", "tinnik"]
+
+[[paper]]
+id = "ectoblob"
+family = 1
+order = 4
+short = "ECToBlob"
+authors = "Rhodes, Allman, Ané, Baños"
+year = "2026"
+title = "Statistical inference of the Tree of Blobs of a phylogenetic network from quartet concordance factors"
+url = "https://doi.org/10.64898/2026.05.28.728501"
+kind = "method"
+root = "ECToBlob"
+status = "formalized"
+commit = "d0c998d2e3b06102790891a3f6cb0dfa59cfe8d5"
+builds_on = ["allman2023", "tinnik", "nanuq"]
