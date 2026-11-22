@@ -4,6 +4,7 @@ public import Phylogenetics.Network.Cuts
 public import Phylogenetics.Network.DeletedArcs
 public import Phylogenetics.Network.Quartets
 public import Phylogenetics.Tree.Metric
+public import Phylogenetics.Network.CutHierarchy
 public import Phylogenetics.Tree.Splits
 
 /-!

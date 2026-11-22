@@ -5,6 +5,7 @@ public import Phylogenetics.NMSC.Defs
 public import TreeOfBlobs.Testing.Combining
 public import TreeOfBlobs.Testing.Defs
 public import Phylogenetics.Tree.Metric
+public import Phylogenetics.Network.CutHierarchy
 
 /-!
 # Definitions specific to ECToBlob, TOB-QMC and TINNiK

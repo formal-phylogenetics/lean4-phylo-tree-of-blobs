@@ -1,6 +1,7 @@
 module
 
 public import Phylogenetics.Tree.Metric
+public import Phylogenetics.Network.CutHierarchy
 
 /-!
 # Rhodes 2020: the quartet metrization of a tree

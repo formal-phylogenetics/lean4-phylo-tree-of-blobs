@@ -3,6 +3,7 @@ module
 public import Phylogenetics.NMSC.Analytic
 public import Phylogenetics.NMSC.Level1.Arms
 public import Phylogenetics.NMSC.TreeCF
+public import Phylogenetics.Network.CutHierarchy
 public import Phylogenetics.NMSC.Witness
 public import Phylogenetics.NMSC.DisplayedTreeModel
 

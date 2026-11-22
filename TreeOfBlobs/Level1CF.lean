@@ -2,6 +2,7 @@ module
 
 public import TreeOfBlobs.Level1Blobs
 public import Phylogenetics.NMSC.TreeCF
+public import Phylogenetics.Network.CutHierarchy
 public import Phylogenetics.Network.Cuts
 public import Phylogenetics.Network.Quartets
 public import Phylogenetics.Tree.Splits

@@ -9,6 +9,7 @@ public import Phylogenetics.Network.Cuts
 public import Phylogenetics.Network.DeletedArcs
 public import Phylogenetics.Network.Quartets
 public import Phylogenetics.Tree.Splits
+public import Phylogenetics.Network.CutHierarchy
 
 /-!
 # Networks given by tables of arcs, and a binary network with a 4-cycle and a cut edge

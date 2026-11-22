@@ -2,6 +2,7 @@ module
 
 public import Phylogenetics.Hierarchy.Basic
 public import Phylogenetics.Tree.Splits
+public import Phylogenetics.Network.CutHierarchy
 
 /-!
 # How many splits a tree has

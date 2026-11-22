@@ -5,6 +5,7 @@ public import TreeOfBlobs.Wedge
 public import Phylogenetics.Network.Cuts
 public import Phylogenetics.Network.Quartets
 public import Phylogenetics.Tree.Splits
+public import Phylogenetics.Network.CutHierarchy
 
 /-!
 # Blocks at a blob of a level-1 network, and treelike sets of four taxa

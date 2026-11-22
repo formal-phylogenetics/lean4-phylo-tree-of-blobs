@@ -4,6 +4,7 @@ public import TreeOfBlobs.Testing.Defs
 public import TreeOfBlobs.Testing.IID
 public import TreeOfBlobs.ForMathlib.Probability.GaussianTail
 public import Phylogenetics.Tree.Splits
+public import Phylogenetics.Network.CutHierarchy
 public import Mathlib.MeasureTheory.Function.ConvergenceInDistribution
 public import Mathlib.Analysis.SpecialFunctions.Log.NegMulLog
 

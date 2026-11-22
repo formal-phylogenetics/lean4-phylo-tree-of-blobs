@@ -1,6 +1,7 @@
 module
 
 public import Phylogenetics.Tree.Splice
+public import Phylogenetics.Network.CutHierarchy
 
 /-!
 # The local objective at a multifurcation: attaching subtrees, and sums over representatives
