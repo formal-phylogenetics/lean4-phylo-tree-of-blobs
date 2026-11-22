@@ -1,47 +1,26 @@
 name = "TreeOfBlobs"
-version = "0.1.0"
+version = "0.2.0"
 keywords = ["math", "phylogenetics"]
-srcDir = "src"
-defaultTargets = ["Basic", "External", "TINNiK", "TOBQMC", "ECToBlob", "AllmanEtAl2023", "MainResults"]
+description = "What the formalizations of the tree-of-blobs papers share: hypothesis tests on quartet concordance factors, blobs of level-1 networks, and the sources the papers cite"
+defaultTargets = ["TreeOfBlobs"]
 
 [leanOptions]
 pp.unicode.fun = true
 autoImplicit = false
 maxSynthPendingDepth = 3
 
-[[require]]
-name = "mathlib"
-scope = "leanprover-community"
-rev = "v4.36.0-rc1"
-
+# The root of the collection: the shared library of phylogenetics.
 [[require]]
 name = "Phylogenetics"
 git = "https://github.com/vltanh/lean4-phylogenetics"
 rev = "f1a3592dee6e3f7d5e7a68a0695ac457de23d2de"
 
-[[lean_lib]]
-name = "Basic"
-globs = ["Basic.+"]
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.36.0-rc1"
 
+# Every module of this repository is under TreeOfBlobs/ (lean4-phylogenetics, docs/CONVENTIONS.md).
 [[lean_lib]]
-name = "External"
-globs = ["External.+"]
-
-[[lean_lib]]
-name = "AllmanEtAl2023"
-globs = ["AllmanEtAl2023.+"]
-
-[[lean_lib]]
-name = "TINNiK"
-globs = ["TINNiK.+"]
-
-[[lean_lib]]
-name = "TOBQMC"
-globs = ["TOBQMC.+"]
-
-[[lean_lib]]
-name = "ECToBlob"
-globs = ["ECToBlob.+"]
-
-[[lean_lib]]
-name = "MainResults"
+name = "TreeOfBlobs"
+globs = ["TreeOfBlobs.+"]

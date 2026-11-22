@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/vltanh/lean4-tob/actions/workflows/lean_action_ci.yml/badge.svg)](https://github.com/vltanh/lean4-tob/actions/workflows/lean_action_ci.yml)
 
-Lean 4 formalizations of four papers that serve one problem: inferring the tree of blobs of a phylogenetic network. Each paper has a folder of its own in [`papers/`](papers), with a front page, an audit of the paper against the formalization, and the files of a Palomar entry. [`docs/REPORT.md`](docs/REPORT.md) is an overview of the field and its literature.
+Lean 4 formalizations of four papers that serve one problem: inferring the tree of blobs of a phylogenetic network. Each paper has a folder of its own in [`papers/`](README.md), with a front page, an audit of the paper against the formalization, and the files of a Palomar entry. [`docs/REPORT.md`](docs/REPORT.md) is an overview of the field and its literature.
 
 ## The problem
 
@@ -22,7 +22,7 @@ E. S. Allman, H. Baños, J. D. Mitchell, J. A. Rhodes, *The tree of blobs of a s
 
 - **The paper.** On four taxa, for generic parameters, the concordance factor determines the tree of blobs of the induced 4-taxon network: it has the topology `ab|cd` exactly when the concordance factor is strictly `(ab|cd)`-cut, and it is unresolved exactly when the concordance factor is non-cut (Theorem 1, Corollary 1: the CF-detectability of 4-blobs). A set of four taxa can be unresolved in the tree of blobs of the whole network, a B-quartet, while its induced network has a cut edge, which the paper calls "the main obstacle". The B-quartet Inference Rule (Theorems 2 and 3) identifies all B-quartets from the concordance factors, and for generic parameters one function, chosen before the network, then recovers the reduced unrooted tree of blobs from the gene quartet distribution (Theorem 4).
 - **The formalization.** Every numbered result, on the paper's own objects, with the remarks, the outline of an algorithm in its Section 5 and the examples of its Figures 1, 2, 3 and 9. Lemma 2 needs its subnetwork to be connected, as all its uses are. The forms that the three later papers use are stated on subgraphs of a fixed network, in the same part.
-- [Front page](papers/AllmanEtAl2023/README.md) · [Audit](papers/AllmanEtAl2023/REPORT.md) · [Palomar entry](papers/AllmanEtAl2023/palomar)
+- [Front page](https://github.com/vltanh/lean4-allman2023/blob/main/README.md) · [Audit](https://github.com/vltanh/lean4-allman2023/blob/main/REPORT.md) · [Palomar entry](https://github.com/vltanh/lean4-allman2023)
 
 ### TINNiK (Allman, Baños, Mitchell, Rhodes 2024): an algorithm
 
@@ -30,7 +30,7 @@ E. S. Allman, H. Baños, J. D. Mitchell, J. A. Rhodes, *TINNiK: inference of the
 
 - **The paper.** An algorithm from the identifiability result. It judges a set of four taxa a B-quartet when the star test does not reject at level `β` or the cut test rejects at level `α`, with the T3 test as an option; these tests build on Mitchell, Allman, Rhodes 2019. It closes the judged sets under the B-quartet Inference Rule, and builds a tree from a quartet distance (Rhodes 2020) by neighbor joining. Theorem 4: for generic parameters on a binary network there are levels `α_m → 0` such that, for any `β > 0` and any exact tree builder, the algorithm on `m` gene trees returns the tree of blobs with probability tending to one.
 - **The formalization.** Theorem 4, with the paper's levels and with the T3 test; the maximum likelihood estimates of its Appendix C.1, read on the closed simplex; Propositions 5 and 6, the limit law of the cut test and its density; neighbor joining in its Step 4; the algorithm with missing taxa; and the counts behind its running times.
-- [Front page](papers/TINNiK/README.md) · [Audit](papers/TINNiK/REPORT.md) · [Palomar entry](papers/TINNiK/palomar)
+- [Front page](https://github.com/vltanh/lean4-tinnik/blob/main/README.md) · [Audit](https://github.com/vltanh/lean4-tinnik/blob/main/REPORT.md) · [Palomar entry](https://github.com/vltanh/lean4-tinnik)
 
 ### TOB-QMC (Dai, Han, Molloy 2026): quartet consensus, then contraction
 
@@ -38,7 +38,7 @@ J. Dai, Y. Han, E. K. Molloy, *Quartet-based species tree methods enable fast an
 
 - **The paper.** Under the binary NMSC, on networks whose T-quartets are not anomalous, every optimal solution of Weighted Quartet Consensus refines the tree of blobs, almost surely for all large numbers of gene trees (Theorem 1), so quartet-based species tree methods such as TREE-QMC and ASTRAL give a refinement. On a binary level-1 network, an oracle for treelikeness on a disjoint cover of quartets around each edge of a refinement finds the edges to contract (Theorem 2). With TINNiK's tests on these quartets, a linear number per edge, the method is consistent for level-1 networks (§4.3).
 - **The formalization.** Every numbered result; the consistency claim of §4.3; the claims of the supplement at level 1, and their failure at level 2; the T3 option; the implementation; ASTRAL's dynamic program, exact on its search space; and the counts behind the running times.
-- [Front page](papers/TOBQMC/README.md) · [Audit](papers/TOBQMC/REPORT.md) · [Palomar entry](papers/TOBQMC/palomar)
+- [Front page](https://github.com/vltanh/lean4-tob-qmc/blob/main/README.md) · [Audit](https://github.com/vltanh/lean4-tob-qmc/blob/main/REPORT.md) · [Palomar entry](https://github.com/vltanh/lean4-tob-qmc)
 
 ### ECToBlob (Rhodes, Allman, Ané, Baños 2026): the same outline, at any level
 
@@ -46,34 +46,34 @@ J. A. Rhodes, E. S. Allman, C. Ané, H. Baños, *Statistical inference of the Tr
 
 - **The paper.** Every tree maximizing the Maximum Quartet Support objective resolves the tree of blobs, for quartet probabilities with strict dominance across cut edges and exchangeability across them (Theorem 3.1). If `a₁a₂|b₁b₂` is a cut-edge split of the induced 4-taxon network for all `aᵢ ∈ Aᵢ`, `bᵢ ∈ Bᵢ`, then `A₁ ∪ A₂ | B₁ ∪ B₂` is a cut-edge split of the network (Theorem 4.1). The algorithm applies the T1 test to the bipartition, quadripartition or multipartition sets of quartets of an edge, combines the p-values under dependence, and contracts one step at a time. There are test levels, independent of the network, such that every variant of the algorithm, from any resolution of the tree of blobs, returns the tree of blobs with probability tending to one (Theorem 8.2). Remark 8.3 adapts the argument to strengthen the consistency results of NANUQ and TINNiK.
 - **The formalization.** Every numbered result. Theorem 8.2 is proved under two corrections agreed with the maintainer: parameters meeting both directions of Assumption 1, and, for two of its variants, positive alternatives on quartets strictly in the T1 null. Also proved: what the paper says in passing, among it Remark 8.3, Remark 8.4 for binary networks with a counterexample on a non-binary one, and statements of its §10.
-- [Front page](papers/ECToBlob/README.md) · [Audit](papers/ECToBlob/REPORT.md) · [Palomar entry](papers/ECToBlob/palomar)
+- [Front page](https://github.com/vltanh/lean4-ectoblob/blob/main/README.md) · [Audit](https://github.com/vltanh/lean4-ectoblob/blob/main/REPORT.md) · [Palomar entry](https://github.com/vltanh/lean4-ectoblob)
 
 ## How the papers build on each other
 
 - TINNiK turns Allman et al. 2023 into an algorithm. Its Theorem 4 rests on the CF-detectability of 4-blobs and on the B-quartet Inference Rule, which TINNiK numbers Theorems 1 and 2.
-- TOB-QMC and ECToBlob follow one outline, concurrently and independently: an optimum of a quartet criterion refines the tree of blobs, and tests on quartets around each edge remove the false edges. Both cite Allman et al. 2023 and TINNiK. TOB-QMC applies TINNiK's tests with the levels of the proof of its Theorem 4. ECToBlob adapts Theorem 1 of Allman et al. 2023 for its Proposition 5.1. Neither formalization imports the other: what both use is in [`src/Basic/`](src/Basic).
+- TOB-QMC and ECToBlob follow one outline, concurrently and independently: an optimum of a quartet criterion refines the tree of blobs, and tests on quartets around each edge remove the false edges. Both cite Allman et al. 2023 and TINNiK. TOB-QMC applies TINNiK's tests with the levels of the proof of its Theorem 4. ECToBlob adapts Theorem 1 of Allman et al. 2023 for its Proposition 5.1. Neither formalization imports the other: what both use is in [`src/Basic/`](TreeOfBlobs).
 - NANUQ (Allman, Baños, Rhodes 2019), a method for level-1 networks, is a cited source here. Its formalization uses the language of Allman et al. 2023 and TINNiK's T3 test, and ECToBlob's Remark 8.3 strengthens its consistency result, as it does TINNiK's.
 
 The cited sources are proved in [`src/External/`](src/External), one folder per source, each with a README that says whether its source was read. Results of these sources that no proof here uses are left out.
 
 | Source | What is proved | Cited by | Folder |
 | --- | --- | --- | --- |
-| Mitchell, Allman, Rhodes 2019 | Theorem 3.1 for the trinomial cut model; the limit laws and densities of the T3 and T1 tests (Propositions 4.1, 4.2, 5.1, 5.2) | TINNiK, TOB-QMC, ECToBlob | [`MitchellAllmanRhodes2019`](src/External/MitchellAllmanRhodes2019) |
-| Rhodes 2020 | Theorem 2: the quartet distance is a tree metric with the same topology | TINNiK, Allman et al. 2023 | [`Rhodes2020`](src/External/Rhodes2020) |
-| Allman, Baños, Rhodes 2019 (NANUQ) | Proposition 9; Theorem 36, corrected | ECToBlob, TINNiK, Allman et al. 2023 | [`AllmanBanosRhodes2019`](src/External/AllmanBanosRhodes2019) |
-| Ané et al. 2024 | Exchangeability across a cut edge; Proposition 12; rule 2 of its Section 3.3 | TOB-QMC, ECToBlob | [`AneEtAl2024`](src/External/AneEtAl2024) |
-| Huber et al. 2025 | Theorem 5.1, both directions | TOB-QMC | [`HuberEtAl2025`](src/External/HuberEtAl2025) |
-| Dinh, Baños 2025 | Theorem 1 and Corollary 2 | TOB-QMC, ECToBlob | [`DinhBanos2025`](src/External/DinhBanos2025) |
-| Kane, Tao 2017 | The bound of Theorem 1 | TOB-QMC, through ASTRAL-III | [`KaneTao2017`](src/External/KaneTao2017) |
-| Legried et al. 2021 | Theorem 1 on quartets | ECToBlob | [`LegriedEtAl2021`](src/External/LegriedEtAl2021) |
-| Studier, Keppler 1988 | Their Lemma fails at a polytomy; their theorem holds with polytomies, in the library | TINNiK | [`StudierKeppler1988`](src/External/StudierKeppler1988) |
+| Mitchell, Allman, Rhodes 2019 | Theorem 3.1 for the trinomial cut model; the limit laws and densities of the T3 and T1 tests (Propositions 4.1, 4.2, 5.1, 5.2) | TINNiK, TOB-QMC, ECToBlob | [`MitchellAllmanRhodes2019`](TreeOfBlobs/External/MitchellAllmanRhodes2019) |
+| Rhodes 2020 | Theorem 2: the quartet distance is a tree metric with the same topology | TINNiK, Allman et al. 2023 | [`Rhodes2020`](TreeOfBlobs/External/Rhodes2020) |
+| Allman, Baños, Rhodes 2019 (NANUQ) | Proposition 9; Theorem 36, corrected | ECToBlob, TINNiK, Allman et al. 2023 | [`AllmanBanosRhodes2019`](https://github.com/vltanh/lean4-nanuq/tree/main/Nanuq) |
+| Ané et al. 2024 | Exchangeability across a cut edge; Proposition 12; rule 2 of its Section 3.3 | TOB-QMC, ECToBlob | [`AneEtAl2024`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC/External/AneEtAl2024) |
+| Huber et al. 2025 | Theorem 5.1, both directions | TOB-QMC | [`HuberEtAl2025`](TreeOfBlobs/External/HuberEtAl2025) |
+| Dinh, Baños 2025 | Theorem 1 and Corollary 2 | TOB-QMC, ECToBlob | [`DinhBanos2025`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC/External/DinhBanos2025) |
+| Kane, Tao 2017 | The bound of Theorem 1 | TOB-QMC, through ASTRAL-III | [`KaneTao2017`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC/External/KaneTao2017) |
+| Legried et al. 2021 | Theorem 1 on quartets | ECToBlob | [`LegriedEtAl2021`](https://github.com/vltanh/lean4-ectoblob/tree/main/ECToBlob/External/LegriedEtAl2021) |
+| Studier, Keppler 1988 | Their Lemma fails at a polytomy; their theorem holds with polytomies, in the library | TINNiK | [`StudierKeppler1988`](https://github.com/vltanh/lean4-tinnik/tree/main/TINNiK/External/StudierKeppler1988) |
 
 Allman et al. 2023 is both a paper of the collection and a source of the three later papers. The standard definitions and results of phylogenetics, among them networks, trees and their splits, the network multispecies coalescent, Kingman's coalescent with Tavaré's formula, neighbor joining and ASTRAL's dynamic program, are in the library [lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics), which this project imports. So is the Splits Equivalence Theorem of Semple, Steel 2003, whose uniqueness half Allman et al. 2023 uses ([`Phylogenetics.SplitsEquivalence.xTree_unique`](https://github.com/vltanh/lean4-phylogenetics/blob/f1a3592dee6e3f7d5e7a68a0695ac457de23d2de/Phylogenetics/Tree/SplitsEquivalence.lean#L604)).
 
 ## Status
 
 - Every numbered result of the four papers is proved, as printed or in a corrected form that the paper's report records. The proofs follow the papers' arguments, except the departures listed in Section 7 of each report, each with its reason. No result of the literature is assumed. Statements that the audit finds false are refuted in Lean, and their true forms are proved.
-- `lake build` passes with no warnings, and there is no `sorry`, `axiom`, `native_decide` or `implemented_by` in [`src/`](src). [`scripts/Audit.lean`](scripts/Audit.lean) checks every declaration of the project and of the library it uses, including private and generated ones, against Lean's three standard axioms, [`propext`](https://leanprover-community.github.io/mathlib4_docs/Init/Core.html#propext), [`Classical.choice`](https://leanprover-community.github.io/mathlib4_docs/Init/Prelude.html#Classical.choice) and [`Quot.sound`](https://leanprover-community.github.io/mathlib4_docs/Init/Prelude.html#Quot.sound).
+- `lake build` passes with no warnings, and there is no `sorry`, `axiom`, `native_decide` or `implemented_by` in [`src/`](.). [`scripts/Audit.lean`](scripts/Audit.lean) checks every declaration of the project and of the library it uses, including private and generated ones, against Lean's three standard axioms, [`propext`](https://leanprover-community.github.io/mathlib4_docs/Init/Core.html#propext), [`Classical.choice`](https://leanprover-community.github.io/mathlib4_docs/Init/Prelude.html#Classical.choice) and [`Quot.sound`](https://leanprover-community.github.io/mathlib4_docs/Init/Prelude.html#Quot.sound).
 - The main theorems are in [`src/MainResults/`](src/MainResults), one module per paper, in the namespace `TreeOfBlobs`, each with a docstring in plain terms. [`scripts/check_kernels.sh`](scripts/check_kernels.sh) checks the main theorems of each paper's Palomar entry under three kernels: Lean's and NanoDa, through Comparator, and con-ron.
 - The route check ([`scripts/route_check.py`](scripts/route_check.py)) confirms that every proof uses the results that the paper's proof cites, except the differences recorded, each with its reason, in [`docs/route_differences.tsv`](docs/route_differences.tsv).
 - No person has reviewed the proofs. Independent agents reviewed the statements against the papers, compared the proofs with the papers' and checked the audit's findings.
@@ -111,27 +111,27 @@ scripts/check_kernels.sh papers/TINNiK/palomar/comparator.json                  
 
 | Folder | Content |
 | --- | --- |
-| [`papers/`](papers) | One folder per paper, [`ECToBlob`](papers/ECToBlob), [`TOBQMC`](papers/TOBQMC), [`TINNiK`](papers/TINNiK), [`AllmanEtAl2023`](papers/AllmanEtAl2023), as the root of a repository of its own would be: [`README.md`](README.md), the front page; `REPORT.md`, the audit; `palomar/`, with `formalization.yaml` and `comparator.json`, for a Palomar submission, which isn't planned |
-| [`src/MainResults/`](src/MainResults) | The main theorems, one module per paper, with those of the sources it cites; [`src/MainResults.lean`](src/MainResults.lean) imports the four |
-| [`src/Basic/`](src/Basic) | What the papers share beyond the library: the algorithms and standing assumptions, the hypothesis tests, blobs of level-1 networks, networks given by tables, analysis for Mathlib. It imports no paper. [Its README](src/Basic/README.md) has the modules |
-| [`src/AllmanEtAl2023/`](src/AllmanEtAl2023) | Allman et al. 2023, on the paper's own objects, and the forms for the later papers. [Its README](src/AllmanEtAl2023/README.md) lists results and modules |
-| [`src/TINNiK/`](src/TINNiK) | TINNiK: Theorem 4, the T3 option, neighbor joining, missing taxa, the outline of Allman et al., counts, the test's statistics |
-| [`src/TOBQMC/`](src/TOBQMC) | TOB-QMC: quartet consensus, Lemma 4 at level 1, consistency, the bipartition search, the implementation, running times, the supplement's lemmas |
-| [`src/ECToBlob/`](src/ECToBlob) | ECToBlob: Sections 3 to 8, Remarks, §10, the displayed tree model, the framework on other tests |
+| [`papers/`](README.md) | One folder per paper, [`ECToBlob`](https://github.com/vltanh/lean4-ectoblob), [`TOBQMC`](https://github.com/vltanh/lean4-tob-qmc), [`TINNiK`](https://github.com/vltanh/lean4-tinnik), [`AllmanEtAl2023`](https://github.com/vltanh/lean4-allman2023), as the root of a repository of its own would be: [`README.md`](README.md), the front page; `REPORT.md`, the audit; `palomar/`, with `formalization.yaml` and `comparator.json`, for a Palomar submission, which isn't planned |
+| [`src/MainResults/`](src/MainResults) | The main theorems, one module per paper, with those of the sources it cites; [`src/MainResults.lean`](README.md) imports the four |
+| [`src/Basic/`](TreeOfBlobs) | What the papers share beyond the library: the algorithms and standing assumptions, the hypothesis tests, blobs of level-1 networks, networks given by tables, analysis for Mathlib. It imports no paper. [Its README](TreeOfBlobs/README.md) has the modules |
+| [`src/AllmanEtAl2023/`](https://github.com/vltanh/lean4-allman2023/tree/main/AllmanEtAl2023) | Allman et al. 2023, on the paper's own objects, and the forms for the later papers. [Its README](https://github.com/vltanh/lean4-allman2023/blob/main/AllmanEtAl2023/README.md) lists results and modules |
+| [`src/TINNiK/`](https://github.com/vltanh/lean4-tinnik/tree/main/TINNiK) | TINNiK: Theorem 4, the T3 option, neighbor joining, missing taxa, the outline of Allman et al., counts, the test's statistics |
+| [`src/TOBQMC/`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC) | TOB-QMC: quartet consensus, Lemma 4 at level 1, consistency, the bipartition search, the implementation, running times, the supplement's lemmas |
+| [`src/ECToBlob/`](https://github.com/vltanh/lean4-ectoblob/tree/main/ECToBlob) | ECToBlob: Sections 3 to 8, Remarks, §10, the displayed tree model, the framework on other tests |
 | [`src/External/`](src/External) | The results that the papers cite, one folder per source, each with a README |
 | [`docs/`](docs) | [`REPORT.md`](docs/REPORT.md), the overview of the field; [`CREDITS.md`](docs/CREDITS.md); [`CONFIGURATION.md`](docs/CONFIGURATION.md); the records of adapted code; the routes of the proofs, [`paper_routes.tsv`](docs/paper_routes.tsv) and [`route_differences.tsv`](docs/route_differences.tsv); [`sources.json`](docs/sources.json), the hashes of the texts read |
 | [`scripts/`](scripts) | The audit, the route check, the check of the units, the kernels, and the checks of generated files, links and tables |
 
-Each folder of [`src/`](src) is a Lean library of the same name, declared in [`lakefile.toml`](lakefile.toml).
+Each folder of [`src/`](.) is a Lean library of the same name, declared in [`lakefile.toml`](lakefile.toml).
 
 ### Units and their imports
 
-[`scripts/layers.toml`](scripts/layers.toml) divides the code into units, each of which could be its own Lake package: [`Basic`](src/Basic), each paper with its main results and the sources that only it uses, and each source that several papers use. It lists the units that each unit may import, and [`scripts/check_layers.py`](scripts/check_layers.py) checks every import against it, and that the units form no cycle. CI runs it.
+[`scripts/layers.toml`](scripts/layers.toml) divides the code into units, each of which could be its own Lake package: [`Basic`](TreeOfBlobs), each paper with its main results and the sources that only it uses, and each source that several papers use. It lists the units that each unit may import, and [`scripts/check_layers.py`](scripts/check_layers.py) checks every import against it, and that the units form no cycle. CI runs it.
 
-- [`Basic`](src/Basic) imports no paper. Of the sources, only NANUQ imports more than [`Basic`](src/Basic).
+- [`Basic`](TreeOfBlobs) imports no paper. Of the sources, only NANUQ imports more than [`Basic`](TreeOfBlobs).
 - Allman et al. 2023, then TINNiK, then NANUQ (Allman, Baños, Rhodes 2019), whose formalization uses the language of the two later papers and TINNiK's T3 test, then ECToBlob.
-- TOB-QMC imports TINNiK, Ané et al. 2024, Huber et al. 2025, Kane, Tao 2017, Dinh, Baños 2025 and the T3 test of Mitchell et al. 2019. ECToBlob imports TINNiK, NANUQ, Legried et al. 2021 and the T3 test. The two were written independently, and neither imports the other: what both use is in [`Basic`](src/Basic).
-- [`MainResults.lean`](src/MainResults.lean) imports the four papers, and nothing imports it.
+- TOB-QMC imports TINNiK, Ané et al. 2024, Huber et al. 2025, Kane, Tao 2017, Dinh, Baños 2025 and the T3 test of Mitchell et al. 2019. ECToBlob imports TINNiK, NANUQ, Legried et al. 2021 and the T3 test. The two were written independently, and neither imports the other: what both use is in [`Basic`](TreeOfBlobs).
+- [`MainResults.lean`](README.md) imports the four papers, and nothing imports it.
 
 `python3 scripts/check_layers.py --graph` prints the units, lowest first, with what each imports.
 

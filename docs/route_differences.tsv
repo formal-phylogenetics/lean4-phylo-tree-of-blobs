@@ -1,42 +1,7 @@
 # Differences between the routes of the formal proofs and the paper's proofs, each with its reason.
 # Format: label<TAB>±other<TAB>reason. See Section 7 of each paper's report, papers/<Paper>/REPORT.md. The routes of the papers are in docs/paper_routes.tsv.
 # A row with the label `*` records a result used without citation throughout. Each paper has a section below.
-#
-# ==== ECToBlob, TOB-QMC, TINNiK ====
-tob2025:supplement_lemma4	-tob2025:lemma3	The Lean statement takes as hypotheses the properties of B* that the supplement takes from Lemma 3 (there Lemma 5); `theorem1` applies it to the tree from Lemma 3. The route through Lemma 3 is in `theorem1`.
-tob2025:theorem2	-tob2025:corollary1	The paper writes "following the proof of Corollary 1": it reuses that proof's steps, Lemma 2 and Lemma 4, not the corollary's statement, which concerns all subsets around an edge and has no consequence for a cover. The Lean proof uses Lemma 2 and Lemma 4.
-tob2025:consistency	-tinnik:theorem4	The paper cites Theorem 4 of TINNiK for the correctness of the hypothesis tests on all four-taxon subsets, which is a step of that theorem's proof, not its statement. The Lean proof uses this step, `TINNiK.tests_correct`, at parameters where CF-detectability holds, which `TOBQMC.Level1.cfDetectable` proves under the paper's assumptions (E21).
-tinnik:theorem4	-tinnik:proposition5	Theorem 4's proof needs more than the fixed-parameter limit of Proposition 5: the estimated parameter and moving tail levels (the gap of E33). `cutTest_null` and `cutTest_alternative` prove what it needs, from the same limit theorems that prove Proposition 5, and the domination of the test distribution by Z².
-tinnik:theorem4	-tinnik:proposition6	Proposition 6 is the density of the test distribution, for computing p-values. The proof of Theorem 4 uses only the distribution, which `cutTail` defines directly.
-ecto:prop5_1	+a:claim:thm1b-contradiction	The paper reduces to an adaptation of Theorem 1 of Allman et al., and doesn't cite this step of it. `adaptedAllmanTheorem1` runs the argument of their statement (b), through `exists_reduction_of_blobDegree`, whose last step is this contradiction (`IsLowPair.exists_splitOffAt`).
-tinnik:theorem4	+a:thm:CFdetect	The proof restricts to "generic parameters ensuring that all induced 4-networks with 4-blobs have non-cut CFs", which is Theorem 1 of Allman et al., TINNiK's Theorem 1. `AllmanEtAl2023.cfDetectable_generic` gets it from their Theorem 1 on each induced network.
-tinnik:theorem4	+a:claim:cf-induced	Through `AllmanEtAl2023.cfDetectable_generic`, which passes `CF`s to the induced networks, as the proof of Allman et al.'s Corollary 1 does.
-tinnik:theorem4	+a:claim:generic-induced	Through `AllmanEtAl2023.cfDetectable_generic`, which passes generic parameters to the induced networks, as the proof of Allman et al.'s Corollary 1 does.
-tinnik:theorem4	+a:claim:suppress-blobs	Through `AllmanEtAl2023.cfDetectable_generic`, which passes B-quartets to the induced networks.
-tinnik:theorem4	+a:claim:three-taxa	Through `AllmanEtAl2023.closure_sound`: TINNiK's B-quartet Inference is the closure under the rule of Allman et al., and the proof of the rule (`rule_core`) uses that three taxa determine a blob.
-tinnik:theorem4	+a:lem:inducedB	Through `AllmanEtAl2023.closure_complete`: the closure reaches every B-quartet by the cycle of Allman et al.'s Lemma 3 (`lemma3_blob`), which uses their Lemma 2 (`determines_of_subnetwork`).
-#
+# Split from lean4-tob's docs/route_differences.tsv at before-split (6e7bc49): the rows of this repository.
 # ==== Allman, Baños, Mitchell, Rhodes 2023 ====
 # The definitions, which statements use throughout, those of the later papers included when they reach results of this paper. The routes list a definition only where a statement of the proof needs it by name.
-*	+a:def::network	Every statement is on a network of Definition 1 (`IsBinaryNetwork`).
-*	+a:def::undirected	`T_rd(𝒩⁻)` is built on the semidirected network of Definition 5 (`semidirected`, `lsaPlus`), so every statement on it reaches them.
-*	+a:def:blob	Definition 7, through `cutDegree` and `blobDegree`, in what the proofs say about blobs.
-*	+a:def:cf	Definition 14 (`cfTriple`, `quartetCF`), in the statements on `CF`s.
-*	+a:def:cutCF	Definition 15, in the statements on `CF`s.
-*	+a:def:determined	Definition 8 (`IsDeterminedBy`), in the statements on B-quartets, by Definition 12.
-*	+a:def:induced	Definition 6 (`induced`), in the statements on induced networks.
-*	+a:def:tob	Definition 10, through Definition 11.
-*	+a:def:trd	Definition 11 (`Trd`), in the statements on the reduced tree.
-*	+a:def:Bquartet	Definition 12 (`IsBlobQuartet`), in the statements on B-quartets.
-*	+a:def:Tquartet	Definition 13 (`IsTreeQuartet`), in the statements on T-quartets.
 # A basic property of the objects, used without citation.
-*	+a:claim:trd-tree	The paper calls `T_rd(𝒩⁻)` a tree when it defines it, and uses that throughout. Here it is `Bridges.isTree_Trd`, which what is said about the topology of `T_rd` goes through.
-#
-# Section 4.
-a:thm:infrule	-a:claim:b-unresolved	The paper reads "B-quartet" as: paths in the tree of blobs from the fourth taxon first meet the other three at `v`. `rule_core` has this directly, from `IsBQuartet`, by `determines_of_isBQuartet`, with no use of the displayed unresolved quartet, the form of `isBlobQuartet_iff_displaysUnresolved`.
-a:thm:infrule	-a:claim:t-induced	The last step of the paper says that a cut edge separating `a, e` from `b, c, d` leaves `a, e` not separated in the 4-taxon tree of blobs. `not_separating` gets this from `inducedCutSplit_of_hasCutSplit`, on cut-edge splits, not from `isTreeQuartet_induced`, the same fact on T-quartets.
-a:claim:part-a	+a:cor:largeCFdetect	The label is on two theorems. `theorem3_core_partA`, the induction, doesn't use Corollary 1. `theorem3_partA` is all of Theorem 3 with the rule's part (a), which detects through Corollary 1, as `theorem3` does. The paper's sentence gives no route.
-#
-# Section 5.
-a:thm:ToBident	+a:claim:splits-tree	`theorem4_iso` goes beyond the paper's comparison through the displayed quartets, to an isomorphism of labelled trees, by the splits-equivalence theorem, which the paper doesn't cite.
-#
