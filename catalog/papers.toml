@@ -17,7 +17,7 @@ url = "https://doi.org/10.1007/s00285-022-01838-9"
 kind = "theory"
 root = "AllmanEtAl2023"
 status = "formalized"
-commit = "3f2d0608ba389c2c858729a4bef0c514b57a0114"
+commit = "0fe8983a52c3811a8cf0ab99f3f90ff66f6a2937"
 
 [[paper]]
 id = "tinnik"
@@ -31,7 +31,7 @@ url = "https://doi.org/10.1186/s13015-024-00266-2"
 kind = "method"
 root = "TINNiK"
 status = "formalized"
-commit = "4c07751536f46098470cd2962ce5a76f44e97ff5"
+commit = "2eea6cb78cdb068b1ef78da72ad8bbb12beba385"
 builds_on = ["allman2023"]
 
 [[paper]]
@@ -46,7 +46,7 @@ url = "https://doi.org/10.1101/2025.11.05.686850"
 kind = "method"
 root = "TOBQMC"
 status = "formalized"
-commit = "5f7683d0a0f9bbe9f74e94d7cc08a941352f8549"
+commit = "3a55135476efe7dab16b58570ee20163be4c0834"
 builds_on = ["allman2023", "tinnik"]
 
 [[paper]]
@@ -61,5 +61,5 @@ url = "https://doi.org/10.64898/2026.05.28.728501"
 kind = "method"
 root = "ECToBlob"
 status = "formalized"
-commit = "bf5239471798c5b07b77d8d1939bdb8db0a66a82"
+commit = "009862e031f09e73d55248cb97ae63fefc6fcc06"
 builds_on = ["allman2023", "tinnik", "nanuq"]
