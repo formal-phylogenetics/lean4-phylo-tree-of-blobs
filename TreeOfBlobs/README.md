@@ -3,8 +3,8 @@
 The library of this sub-hub: what two or more of its papers use and no paper of the rest of network
 estimation does. What they share with the other papers on network estimation is in the library of
 the hub above,
-[`PhyloNetwork`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork): the
-hypothesis tests on quartet concordance factors, the T1 and T3 tests of Mitchell, Allman, Rhodes
+[`PhyloNetwork`](https://github.com/formal-phylogenetics/lean4-phylo-network/tree/main/PhyloNetwork):
+the hypothesis tests on quartet concordance factors, the T1 and T3 tests of Mitchell, Allman, Rhodes
 2019, blobs, blocks and wedge paths of level-1 networks, cut splits of induced networks, the chain
 of the network multispecies coalescent, and the sources that several papers cite (Rhodes 2020, Huber
 et al. 2025). Networks, trees, quartets, the coalescent, generic parameters and the zero sets of

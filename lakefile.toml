@@ -12,14 +12,14 @@ maxSynthPendingDepth = 3
 # The root of the collection: the shared library of phylogenetics.
 [[require]]
 name = "Phylogenetics"
-git = "https://github.com/vltanh/lean4-phylogenetics"
+git = "https://github.com/formal-phylogenetics/lean4-phylogenetics"
 rev = "3fcabfd7d191990dda268b0b3968d945b65eb59a"
 
 # The hub above this one: what the papers on network estimation share, those on the tree of blobs
 # included.
 [[require]]
 name = "PhyloNetwork"
-git = "https://github.com/vltanh/lean4-phylo-network"
+git = "https://github.com/formal-phylogenetics/lean4-phylo-network"
 rev = "4ed2bb0f7085acbf1326f43e2a5c582ba4566125"
 
 [[require]]

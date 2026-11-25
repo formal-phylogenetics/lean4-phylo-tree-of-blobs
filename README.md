@@ -1,12 +1,13 @@
 # The tree of blobs of a phylogenetic network, in Lean
 
-[![CI](https://github.com/vltanh/lean4-phylo-tree-of-blobs/actions/workflows/lean_action_ci.yml/badge.svg)](https://github.com/vltanh/lean4-phylo-tree-of-blobs/actions/workflows/lean_action_ci.yml)
+[![CI](https://github.com/formal-phylogenetics/lean4-phylo-tree-of-blobs/actions/workflows/lean_action_ci.yml/badge.svg)](https://github.com/formal-phylogenetics/lean4-phylo-tree-of-blobs/actions/workflows/lean_action_ci.yml)
 
 Lean 4 formalizations of papers that infer the tree of blobs of a phylogenetic network, the tree
 that shows which parts of its history are tree-like.
 
-This repository is a sub-hub of [lean4-phylo-network](https://github.com/vltanh/lean4-phylo-network)
-in the collection rooted at [lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics). It
+This repository is a sub-hub of
+[lean4-phylo-network](https://github.com/formal-phylogenetics/lean4-phylo-network) in the collection
+rooted at [lean4-phylogenetics](https://github.com/formal-phylogenetics/lean4-phylogenetics). It
 holds the library [`TreeOfBlobs`](TreeOfBlobs), for what only its papers share, and the catalog of
 the papers, [`catalog/papers.toml`](catalog/papers.toml), from which the tables below are generated.
 The library has the algorithms ECToBlob, TINNiK and TOB-QMC with their standing assumptions,
@@ -14,14 +15,14 @@ networks given by tables, lowest common ancestors, the local objective of a mult
 of tree edges, and bridges found by depth-first search; its [README](TreeOfBlobs/README.md) lists
 the modules and the papers that use each. What these papers share with the rest of network
 estimation is in
-[`PhyloNetwork`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork).
+[`PhyloNetwork`](https://github.com/formal-phylogenetics/lean4-phylo-network/tree/main/PhyloNetwork).
 [`docs/OVERVIEW.md`](docs/OVERVIEW.md) is an overview of the field: the problem and its history, the
 papers and how they relate, the literature, and the open directions.
 
 The collection's
-[conventions](https://github.com/vltanh/lean4-phylogenetics/blob/main/docs/CONVENTIONS.md) and
-[workflow](https://github.com/vltanh/lean4-phylogenetics/blob/main/docs/WORKFLOW.md) are in the
-root. Each paper is formalized with the
+[conventions](https://github.com/formal-phylogenetics/lean4-phylogenetics/blob/main/docs/CONVENTIONS.md) and
+[workflow](https://github.com/formal-phylogenetics/lean4-phylogenetics/blob/main/docs/WORKFLOW.md)
+are in the root. Each paper is formalized with the
 [formalize-math-paper](https://github.com/vltanh/formalize-math-paper) skill: its results are proved
 by the paper's own arguments, and an audit reports its errors and gaps.
 
@@ -52,17 +53,17 @@ library it requires.
 
 | # | Paper | Kind | Repository | Status | Uses |
 | ---: | --- | --- | --- | --- | --- |
-| 1 | Allman, Baños, Mitchell, Rhodes (2023), [The tree of blobs of a species network: identifiability under the coalescent](https://doi.org/10.1007/s00285-022-01838-9) | theory | [lean4-allman2023](https://github.com/vltanh/lean4-allman2023) | formalized | - |
-| 2 | Allman, Baños, Mitchell, Rhodes (2024), [TINNiK: inference of the tree of blobs of a species network under the coalescent model](https://doi.org/10.1186/s13015-024-00266-2) | method | [lean4-tinnik](https://github.com/vltanh/lean4-tinnik) | formalized | Allman, Baños, Mitchell, Rhodes 2023 |
-| 3 | Dai, Han, Molloy (2026), [Quartet-based species tree methods enable fast and consistent tree of blobs reconstruction under the network multispecies coalescent](https://doi.org/10.1101/2025.11.05.686850) | method | [lean4-tob-qmc](https://github.com/vltanh/lean4-tob-qmc) | formalized | Allman, Baños, Mitchell, Rhodes 2023, TINNiK |
-| 4 | Rhodes, Allman, Ané, Baños (2026), [Statistical inference of the Tree of Blobs of a phylogenetic network from quartet concordance factors](https://doi.org/10.64898/2026.05.28.728501) | method | [lean4-ectoblob](https://github.com/vltanh/lean4-ectoblob) | formalized | Allman, Baños, Mitchell, Rhodes 2023, TINNiK, NANUQ |
+| 1 | Allman, Baños, Mitchell, Rhodes (2023), [The tree of blobs of a species network: identifiability under the coalescent](https://doi.org/10.1007/s00285-022-01838-9) | theory | [lean4-allman2023](https://github.com/formal-phylogenetics/lean4-allman2023) | formalized | - |
+| 2 | Allman, Baños, Mitchell, Rhodes (2024), [TINNiK: inference of the tree of blobs of a species network under the coalescent model](https://doi.org/10.1186/s13015-024-00266-2) | method | [lean4-tinnik](https://github.com/formal-phylogenetics/lean4-tinnik) | formalized | Allman, Baños, Mitchell, Rhodes 2023 |
+| 3 | Dai, Han, Molloy (2026), [Quartet-based species tree methods enable fast and consistent tree of blobs reconstruction under the network multispecies coalescent](https://doi.org/10.1101/2025.11.05.686850) | method | [lean4-tob-qmc](https://github.com/formal-phylogenetics/lean4-tob-qmc) | formalized | Allman, Baños, Mitchell, Rhodes 2023, TINNiK |
+| 4 | Rhodes, Allman, Ané, Baños (2026), [Statistical inference of the Tree of Blobs of a phylogenetic network from quartet concordance factors](https://doi.org/10.64898/2026.05.28.728501) | method | [lean4-ectoblob](https://github.com/formal-phylogenetics/lean4-ectoblob) | formalized | Allman, Baños, Mitchell, Rhodes 2023, TINNiK, NANUQ |
 
 <!-- END catalog:papers -->
 
 ## Starting a paper
 
-From [lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics), when the paper's
-formalization starts:
+From [lean4-phylogenetics](https://github.com/formal-phylogenetics/lean4-phylogenetics), when the
+paper's formalization starts:
 
 ```sh
 python3 scripts/status.py next                   # the open papers, by priority
@@ -99,5 +100,5 @@ current.
 ## License
 
 Apache-2.0: [LICENSE](LICENSE). Code adapted from
-[lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics) (Apache-2.0) keeps its notice
-in each file's header.
+[lean4-phylogenetics](https://github.com/formal-phylogenetics/lean4-phylogenetics) (Apache-2.0)
+keeps its notice in each file's header.

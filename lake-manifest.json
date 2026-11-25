@@ -1,7 +1,7 @@
 {"version": "1.3.0",
  "packagesDir": ".lake/packages",
  "packages":
- [{"url": "https://github.com/vltanh/lean4-phylogenetics",
+ [{"url": "https://github.com/formal-phylogenetics/lean4-phylogenetics",
    "type": "git",
    "subDir": null,
    "scope": "",
@@ -11,7 +11,7 @@
    "inputRev": "3fcabfd7d191990dda268b0b3968d945b65eb59a",
    "inherited": false,
    "configFile": "lakefile.toml"},
-  {"url": "https://github.com/vltanh/lean4-phylo-network",
+  {"url": "https://github.com/formal-phylogenetics/lean4-phylo-network",
    "type": "git",
    "subDir": null,
    "scope": "",

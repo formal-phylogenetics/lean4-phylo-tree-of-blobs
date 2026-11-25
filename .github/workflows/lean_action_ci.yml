@@ -38,5 +38,6 @@ jobs:
       # The README's tables are generated from catalog/papers.toml by the root's tools.
       - name: Check that the README is current
         run: |
-          git clone --depth 1 https://github.com/vltanh/lean4-phylogenetics ../lean4-phylogenetics
+          git clone --depth 1 https://github.com/formal-phylogenetics/lean4-phylogenetics \
+            ../lean4-phylogenetics
           python3 ../lean4-phylogenetics/scripts/status.py readme --check --repo lean4-phylo-tree-of-blobs --fetch-hubs
