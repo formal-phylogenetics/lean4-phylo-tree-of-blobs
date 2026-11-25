@@ -45,9 +45,9 @@ year = "2026"
 title = "Quartet-based species tree methods enable fast and consistent tree of blobs reconstruction under the network multispecies coalescent"
 url = "https://doi.org/10.1101/2025.11.05.686850"
 kind = "method"
-root = "TOBQMC"
+root = "TobQmc"
 status = "formalized"
-commit = "37fc92942de7cdcf62fe40c8288b9265cd990066"
+commit = "9af187c56bbf8829a22e94ea90164fba3f74a80b"
 builds_on = ["allman2023", "tinnik"]
 
 [[paper]]

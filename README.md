@@ -50,7 +50,7 @@ J. Dai, Y. Han, E. K. Molloy, *Quartet-based species tree methods enable fast an
 
 - **The paper.** Under the binary NMSC, on networks whose T-quartets are not anomalous, every optimal solution of Weighted Quartet Consensus refines the tree of blobs, almost surely for all large numbers of gene trees (Theorem 1), so quartet-based species tree methods such as TREE-QMC and ASTRAL give a refinement. On a binary level-1 network, an oracle for treelikeness on a disjoint cover of quartets around each edge of a refinement finds the edges to contract (Theorem 2). With TINNiK's tests on these quartets, a linear number per edge, the method is consistent for level-1 networks (§4.3).
 - **The formalization.** Every numbered result; the consistency claim of §4.3; the claims of the supplement at level 1, and their failure at level 2; the T3 option; the implementation; ASTRAL's dynamic program, exact on its search space; and the counts behind the running times.
-- [Front page](https://github.com/vltanh/lean4-tob-qmc/blob/main/README.md) · [Audit](https://github.com/vltanh/lean4-tob-qmc/blob/main/REPORT.md) · [Palomar entry](https://github.com/vltanh/lean4-tob-qmc/blob/main/formalization.yaml)
+- [Front page](https://github.com/vltanh/lean4-tob-qmc/blob/main/README.md) · [Audit](https://github.com/vltanh/lean4-tob-qmc/blob/main/docs/TobQmc/REPORT.md) · [Palomar entry](https://github.com/vltanh/lean4-tob-qmc/blob/main/palomar/TobQmc/formalization.yaml)
 
 ### ECToBlob (Rhodes, Allman, Ané, Baños 2026): the same outline, at any level
 
@@ -73,10 +73,10 @@ The cited sources are proved where they are used: in the repository of the paper
 | Mitchell, Allman, Rhodes 2019 | Theorem 3.1 for the trinomial cut model; the limit laws and densities of the T3 and T1 tests (Propositions 4.1, 4.2, 5.1, 5.2) | TINNiK, TOB-QMC, ECToBlob | [`MitchellAllmanRhodes2019`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork/External/MitchellAllmanRhodes2019) |
 | Rhodes 2020 | Theorem 2: the quartet distance is a tree metric with the same topology | TINNiK, Allman et al. 2023 | [`Rhodes2020`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork/External/Rhodes2020) |
 | Allman, Baños, Rhodes 2019 (NANUQ) | Proposition 9; Theorem 36, corrected | ECToBlob, TINNiK, Allman et al. 2023 | [`Nanuq`](https://github.com/vltanh/lean4-nanuq/tree/main/Nanuq) |
-| Ané et al. 2024 | Exchangeability across a cut edge; Proposition 12; rule 2 of its Section 3.3 | TOB-QMC, ECToBlob | [`AneEtAl2024`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC/External/AneEtAl2024) |
+| Ané et al. 2024 | Exchangeability across a cut edge; Proposition 12; rule 2 of its Section 3.3 | TOB-QMC, ECToBlob | [`AneEtAl2024`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TobQmc/External/AneEtAl2024) |
 | Huber et al. 2025 | Theorem 5.1, both directions | TOB-QMC | [`HuberEtAl2025`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork/External/HuberEtAl2025) |
-| Dinh, Baños 2025 | Theorem 1 and Corollary 2 | TOB-QMC, ECToBlob | [`DinhBanos2025`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC/External/DinhBanos2025) |
-| Kane, Tao 2017 | The bound of Theorem 1 | TOB-QMC, through ASTRAL-III | [`KaneTao2017`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC/External/KaneTao2017) |
+| Dinh, Baños 2025 | Theorem 1 and Corollary 2 | TOB-QMC, ECToBlob | [`DinhBanos2025`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TobQmc/External/DinhBanos2025) |
+| Kane, Tao 2017 | The bound of Theorem 1 | TOB-QMC, through ASTRAL-III | [`KaneTao2017`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TobQmc/External/KaneTao2017) |
 | Legried et al. 2021 | Theorem 1 on quartets | ECToBlob | [`LegriedEtAl2021`](https://github.com/vltanh/lean4-ectoblob/tree/main/ECToBlob/External/LegriedEtAl2021) |
 | Studier, Keppler 1988 | Their Lemma fails at a polytomy; their theorem holds with polytomies, in the library | TINNiK | [`StudierKeppler1988`](https://github.com/vltanh/lean4-tinnik/tree/main/Tinnik/External/StudierKeppler1988) |
 
