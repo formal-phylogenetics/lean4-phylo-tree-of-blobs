@@ -15,9 +15,9 @@ year = "2023"
 title = "The tree of blobs of a species network: identifiability under the coalescent"
 url = "https://doi.org/10.1007/s00285-022-01838-9"
 kind = "theory"
-root = "AllmanEtAl2023"
+root = "Allman2023"
 status = "formalized"
-commit = "f01bb42e8f55b3c2192061ca11b7c05fb04e7395"
+commit = "8511137a98f98a81c2342c4219367eb334551f58"
 
 [[paper]]
 id = "tinnik"
