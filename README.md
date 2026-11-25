@@ -42,7 +42,7 @@ E. S. Allman, H. Baños, J. D. Mitchell, J. A. Rhodes, *TINNiK: inference of the
 
 - **The paper.** An algorithm from the identifiability result. It judges a set of four taxa a B-quartet when the star test does not reject at level `β` or the cut test rejects at level `α`, with the T3 test as an option; these tests build on Mitchell, Allman, Rhodes 2019. It closes the judged sets under the B-quartet Inference Rule, and builds a tree from a quartet distance (Rhodes 2020) by neighbor joining. Theorem 4: for generic parameters on a binary network there are levels `α_m → 0` such that, for any `β > 0` and any exact tree builder, the algorithm on `m` gene trees returns the tree of blobs with probability tending to one.
 - **The formalization.** Theorem 4, with the paper's levels and with the T3 test; the maximum likelihood estimates of its Appendix C.1, read on the closed simplex; Propositions 5 and 6, the limit law of the cut test and its density; neighbor joining in its Step 4; the algorithm with missing taxa; and the counts behind its running times.
-- [Front page](https://github.com/vltanh/lean4-tinnik/blob/main/README.md) · [Audit](https://github.com/vltanh/lean4-tinnik/blob/main/REPORT.md) · [Palomar entry](https://github.com/vltanh/lean4-tinnik/blob/main/formalization.yaml)
+- [Front page](https://github.com/vltanh/lean4-tinnik/blob/main/README.md) · [Audit](https://github.com/vltanh/lean4-tinnik/blob/main/docs/Tinnik/REPORT.md) · [Palomar entry](https://github.com/vltanh/lean4-tinnik/blob/main/palomar/Tinnik/formalization.yaml)
 
 ### TOB-QMC (Dai, Han, Molloy 2026): quartet consensus, then contraction
 
@@ -78,7 +78,7 @@ The cited sources are proved where they are used: in the repository of the paper
 | Dinh, Baños 2025 | Theorem 1 and Corollary 2 | TOB-QMC, ECToBlob | [`DinhBanos2025`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC/External/DinhBanos2025) |
 | Kane, Tao 2017 | The bound of Theorem 1 | TOB-QMC, through ASTRAL-III | [`KaneTao2017`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC/External/KaneTao2017) |
 | Legried et al. 2021 | Theorem 1 on quartets | ECToBlob | [`LegriedEtAl2021`](https://github.com/vltanh/lean4-ectoblob/tree/main/ECToBlob/External/LegriedEtAl2021) |
-| Studier, Keppler 1988 | Their Lemma fails at a polytomy; their theorem holds with polytomies, in the library | TINNiK | [`StudierKeppler1988`](https://github.com/vltanh/lean4-tinnik/tree/main/TINNiK/External/StudierKeppler1988) |
+| Studier, Keppler 1988 | Their Lemma fails at a polytomy; their theorem holds with polytomies, in the library | TINNiK | [`StudierKeppler1988`](https://github.com/vltanh/lean4-tinnik/tree/main/Tinnik/External/StudierKeppler1988) |
 
 Allman et al. 2023 is both a paper of the collection and a source of the three later papers. The standard definitions and results of phylogenetics, among them networks, trees and their splits, the network multispecies coalescent, Kingman's coalescent with Tavaré's formula, neighbor joining and ASTRAL's dynamic program, are in the library [lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics), which this repository and the papers' repositories import. So is the Splits Equivalence Theorem of Semple, Steel 2003, whose uniqueness half Allman et al. 2023 uses ([`Phylogenetics.SplitsEquivalence.xTree_unique`](https://github.com/vltanh/lean4-phylogenetics/blob/f1a3592dee6e3f7d5e7a68a0695ac457de23d2de/Phylogenetics/Tree/SplitsEquivalence.lean#L604)).
 

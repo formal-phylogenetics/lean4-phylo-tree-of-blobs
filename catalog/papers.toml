@@ -30,9 +30,9 @@ year = "2024"
 title = "TINNiK: inference of the tree of blobs of a species network under the coalescent model"
 url = "https://doi.org/10.1186/s13015-024-00266-2"
 kind = "method"
-root = "TINNiK"
+root = "Tinnik"
 status = "formalized"
-commit = "15bc1519546a40c1e041c9f5dd1083ccde17e8dc"
+commit = "eac0722efcb6adbf8e3310dba9e5613868c1b618"
 builds_on = ["allman2023"]
 
 [[paper]]
