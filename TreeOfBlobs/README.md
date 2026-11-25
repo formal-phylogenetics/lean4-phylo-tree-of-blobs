@@ -1,13 +1,14 @@
 # What only the papers on the tree of blobs share
 
 The library of this sub-hub: what two or more of its papers use and no paper of the rest of network
-estimation does. What they share with the other papers on network estimation is in the library of the
-hub above, [`PhyloNetwork`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork):
-the hypothesis tests on quartet concordance factors, the T1 and T3 tests of Mitchell, Allman, Rhodes
-2019, blobs, blocks and wedge paths of level-1 networks, cut splits of induced networks, the chain of
-the network multispecies coalescent, and the sources that several papers cite (Rhodes 2020, Huber et
-al. 2025). Networks, trees, quartets, the coalescent, generic parameters and the zero sets of analytic
-functions are in the root library `Phylogenetics`.
+estimation does. What they share with the other papers on network estimation is in the library of
+the hub above,
+[`PhyloNetwork`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork): the
+hypothesis tests on quartet concordance factors, the T1 and T3 tests of Mitchell, Allman, Rhodes
+2019, blobs, blocks and wedge paths of level-1 networks, cut splits of induced networks, the chain
+of the network multispecies coalescent, and the sources that several papers cite (Rhodes 2020, Huber
+et al. 2025). Networks, trees, quartets, the coalescent, generic parameters and the zero sets of
+analytic functions are in the root library `Phylogenetics`.
 
 | Module | Content | Used by |
 | --- | --- | --- |
@@ -23,17 +24,18 @@ functions are in the root library `Phylogenetics`.
 
 `TreeOfBlobs` imports no paper: its [`lakefile.toml`](../lakefile.toml) requires only
 `Phylogenetics` and `PhyloNetwork`. Its declarations are in the root's namespaces (`Phylogenetics`,
-`Phylogenetics.RootedNetwork`, …) and in the namespace `TreeOfBlobs`: the papers' standing assumptions
-of `Defs` (`TreeOfBlobs.StandardAssumptions`, `TreeOfBlobs.Assumption1Forward`, …), the networks of
-`FinNetwork` (`TreeOfBlobs.FinNetwork`), the counts of `TreeCounts` and `TreeOfBlobs.unitMetric`. These
-modules also give their declarations the names that the papers' repositories use in their own
-namespaces (`ECToBlob`, `TOBQMC`, `TINNiK`): the theorems as deprecated aliases, the definitions exported
-into those namespaces, so that dot notation on their values finds the lemmas of `TreeOfBlobs`.
+`Phylogenetics.RootedNetwork`, …) and in the namespace `TreeOfBlobs`: the papers' standing
+assumptions of `Defs` (`TreeOfBlobs.StandardAssumptions`, `TreeOfBlobs.Assumption1Forward`, …), the
+networks of `FinNetwork` (`TreeOfBlobs.FinNetwork`), the counts of `TreeCounts` and
+`TreeOfBlobs.unitMetric`. These modules also give their declarations the names that the papers'
+repositories use in their own namespaces (`ECToBlob`, `TOBQMC`, `TINNiK`): the theorems as
+deprecated aliases, the definitions exported into those namespaces, so that dot notation on their
+values finds the lemmas of `TreeOfBlobs`.
 
 The modules `Testing/*`, `External/*`, `Level1Blobs`, `Level1Blocks`, `Level1CF`, `Wedge`,
 `InducedSplits`, `NMSCChain`, `ForMathlib/Analysis/SpecialFunctions/{EntropyExcess, Erf}` and
 `ForMathlib/Probability/*` are deprecated: each imports its namesake `PhyloNetwork.*`, and keeps the
-names that the papers' repositories use (deprecated aliases of the theorems, the definitions exported
-into their former namespaces). `General` and `ForMathlib/Analysis/AnalyticZeroSet` are deprecated the
-same way, for `Phylogenetics.NMSC.Generic`, `Phylogenetics.NMSC.ChoiceMetric` and
+names that the papers' repositories use (deprecated aliases of the theorems, the definitions
+exported into their former namespaces). `General` and `ForMathlib/Analysis/AnalyticZeroSet` are
+deprecated the same way, for `Phylogenetics.NMSC.Generic`, `Phylogenetics.NMSC.ChoiceMetric` and
 `Phylogenetics.ForMathlib.Analysis.AnalyticZeroSet`, which have the same names.

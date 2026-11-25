@@ -91,8 +91,8 @@ current.
 - Maintainer: The-Anh Vu-Le, who chose the papers, agreed to the corrections of the statements of
   ECToBlob, TOB-QMC and TINNiK, and decided the libraries' boundaries and the layout.
 - Formalization: source audit and first foundations by Codex; statements, proofs, audit and
-  documents by Claude Opus 5.5 in Claude Code, with sub-agents, following the formalize-math-paper
-  skill. Each paper's repository has its credits.
+  documents by Claude Opus 5.5 in Claude Code, with sub-agents, with the formalize-math-paper skill.
+  Each paper's repository credits its own.
 - Review: no person has reviewed the proofs; Lean's kernel checks them. Independent agents reviewed
   the statements, compared the proofs with the papers' and checked the audits' findings.
 
