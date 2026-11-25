@@ -1,6 +1,6 @@
 # The tree of blobs of a phylogenetic network, in Lean
 
-[![CI](https://github.com/vltanh/lean4-tob/actions/workflows/lean_action_ci.yml/badge.svg)](https://github.com/vltanh/lean4-tob/actions/workflows/lean_action_ci.yml)
+[![CI](https://github.com/vltanh/lean4-phylo-tree-of-blobs/actions/workflows/lean_action_ci.yml/badge.svg)](https://github.com/vltanh/lean4-phylo-tree-of-blobs/actions/workflows/lean_action_ci.yml)
 
 Lean 4 formalizations of the papers that infer the tree of blobs of a phylogenetic network, one repository per paper, and the library they share. This repository is their hub: it holds that library, [`TreeOfBlobs`](TreeOfBlobs), the catalog of the papers, and [`docs/OVERVIEW.md`](docs/OVERVIEW.md), an overview of the field and its literature. Inferring the tree of blobs is a step of network estimation, so this hub is a sub-hub of [lean4-phylo-network](https://github.com/vltanh/lean4-phylo-network), in the collection rooted at [lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics), whose conventions every repository follows. Each paper here requires the three libraries: `Phylogenetics`, `PhyloNetwork` and `TreeOfBlobs`.
 
