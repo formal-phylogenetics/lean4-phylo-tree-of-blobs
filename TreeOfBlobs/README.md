@@ -1,25 +1,37 @@
-# What the papers share, beyond the library
+# What only the papers on the tree of blobs share
 
-| Module | Content | Possible home |
+The library of this sub-hub: what two or more of its papers use and no paper of the rest of network
+estimation does. What they share with the other papers on network estimation is in the library of the
+hub above, [`PhyloNetwork`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork):
+the hypothesis tests on quartet concordance factors, the T1 and T3 tests of Mitchell, Allman, Rhodes
+2019, blobs, blocks and wedge paths of level-1 networks, cut splits of induced networks, the chain of
+the network multispecies coalescent, and the sources that several papers cite (Rhodes 2020, Huber et
+al. 2025). Networks, trees, quartets, the coalescent, generic parameters and the zero sets of analytic
+functions are in the root library `Phylogenetics`.
+
+| Module | Content | Used by |
 | --- | --- | --- |
-| `Defs` | **The definitions specific to the three papers**: the algorithms ECToBlob, TINNiK and TOB-QMC with their options and steps, and the papers' standing assumptions | This repository |
-| `Testing/*` | Hypothesis tests on quartet counts: statistics and p-values, combining p-values, independent samples, tails, limit laws through the trinomial central limit theorem | This repository |
-| `ForMathlib/*` | Analysis and probability that do not mention phylogenetics: zero sets of analytic functions, finite optimization, the error function, `x log x`, the multinomial likelihood, the Gaussian plane and its tails, transferring limit laws | Mathlib |
-| `LocalObjective` | The local objective at a multifurcation of ECToBlob's Theorem 3.1: attaching subtrees, sums over representatives | This repository |
-| `RhoOne` | No anomalous quartets at `ρ = 1`: the strict form of Proposition 12 of Ané et al. 2024 | The library `Phylogenetics` |
-| `LCA` | Lowest common ancestors: a sparse table with `O(1)` queries, and binary lifting, whose queries take `log` many jumps | The library `Phylogenetics` |
-| `BridgeDFS` | Bridges and blobs by a search with low-points, in `\|V\| + 2 \|E\|` steps, and the tree of blobs as intervals of discovery times | The library `Phylogenetics` |
-| `General` | Taxa that a parent choice leaves unresolved have concordance factors `1/3`, for all correlations; null sets of parameters are closed under subsets and countable unions (`IsGenericNull.mono`, `union`, `iUnion`) | The library `Phylogenetics` |
-| `Level1Blobs` | Blobs of level-1 networks in the language of domination: bridges, the reticulation of a blob, walks that avoid a blob | The library `Phylogenetics` |
-| `Wedge` | Wedge paths, the subnetwork on a set of taxa and its cut edges, the cycle of a blob of a binary level-1 network | The library `Phylogenetics` |
-| `Level1Blocks` | Blocks at a blob, treelike sets of four taxa, and two of the three cases of TOB-QMC's Lemma 4, which NANUQ's Proposition 9 uses too | This repository |
-| `Level1CF` | At level 1, an induced cut-edge split that the tree of blobs does not display has the strictly largest concordance factor. TOB-QMC and NANUQ use it | This repository |
-| `InducedSplits` | Cut splits of induced networks in the language of domination, quartet trees as four taxa, and splits off a deletion | The library `Phylogenetics` |
-| `FinNetwork` | Networks given by tables of arcs, checked by `decide`, and the binary network with a 4-cycle and a cut edge that the counterexamples of ECToBlob and TOB-QMC use | This repository |
-| `TreeCounts` | How many clusters a hierarchy has, and how many internal edges a binary tree has | The library `Phylogenetics` |
-| `UnitMetric` | Valid parameters on any network: unit lengths, equal inheritance | The library `Phylogenetics` |
-| `NMSCChain` | The chain of the network multispecies coalescent on a concrete network, from the root down, and the laws of a phylogenetic network from a rank function. ECToBlob's Remarks 3.3 and 5.2, NANUQ's counterexamples and the examples of Allman et al. 2023 use it | The library `Phylogenetics` |
+| `Defs` | The definitions specific to the papers: the algorithms ECToBlob, TINNiK and TOB-QMC with their options and steps, and the papers' standing assumptions (`NoAnomalousQuartets`, `RootedNetwork.IsParentChoice`, `TOBQMC.StandardAssumptions`, …) | Allman et al. 2023, TINNiK, TOB-QMC, ECToBlob |
+| `FinNetwork` | Networks given by tables of arcs, checked by `decide`, and the binary network with a 4-cycle and a cut edge that the counterexamples of ECToBlob and TOB-QMC use | TOB-QMC, ECToBlob |
+| `LocalObjective` | The local objective at a multifurcation of ECToBlob's Theorem 3.1: attaching subtrees, sums over representatives | TOB-QMC, ECToBlob |
+| `RhoOne` | No anomalous quartets at `ρ = 1`: the strict form of Proposition 12 of Ané et al. 2024 | TOB-QMC, ECToBlob |
+| `TreeCounts` | How many clusters a hierarchy has, and how many internal edges a binary tree has | TINNiK, TOB-QMC, ECToBlob |
+| `UnitMetric` | Valid parameters on any network: unit lengths, equal inheritance | TOB-QMC, ECToBlob |
+| `LCA` | Lowest common ancestors: a sparse table with `O(1)` queries, and binary lifting, whose queries take `log` many jumps | TOB-QMC |
+| `BridgeDFS` | Bridges and blobs by a search with low-points, in `\|V\| + 2 \|E\|` steps, and the tree of blobs as intervals of discovery times | TOB-QMC's report, for linear-time blobs |
+| `ForMathlib/Analysis/FiniteOptimization`, `ForMathlib/Analysis/SpecialFunctions/GibbsInequality` | Analysis that does not mention phylogenetics: optimization over finite sets, Gibbs' inequality | ECToBlob; TINNiK |
 
-Networks, trees, quartets, the coalescent and the theory of the network multispecies coalescent are in the library `Phylogenetics`.
+`TreeOfBlobs` imports no paper: its [`lakefile.toml`](../lakefile.toml) requires only
+`Phylogenetics` and `PhyloNetwork`. Most declarations are in the root's namespaces (`Phylogenetics`,
+`Phylogenetics.RootedNetwork`, …). Some are in the namespace of the paper that first needed them
+(`TOBQMC`, `ECToBlob`, `TINNiK`), which the conventions of the collection do not allow in a hub's
+library (lean4-phylogenetics, `docs/CONVENTIONS.md`, Section 3): renaming them is a change of its
+own, with deprecated aliases.
 
-`TreeOfBlobs` imports no paper: its [`lakefile.toml`](../lakefile.toml) requires none. `External/` holds the sources that several papers cite, each with a README. A declaration that moved here from a paper's folder, because another paper uses it, keeps its name, in the namespace of the paper that first needed it (`TOBQMC.Level1`, `ECToBlob.FalseEdge`, `TINNiK`).
+The modules `Testing/*`, `External/*`, `Level1Blobs`, `Level1Blocks`, `Level1CF`, `Wedge`,
+`InducedSplits`, `NMSCChain`, `ForMathlib/Analysis/SpecialFunctions/{EntropyExcess, Erf}` and
+`ForMathlib/Probability/*` are deprecated: each imports its namesake `PhyloNetwork.*`, and keeps the
+names that the papers' repositories use (deprecated aliases of the theorems, the definitions exported
+into their former namespaces). `General` and `ForMathlib/Analysis/AnalyticZeroSet` are deprecated the
+same way, for `Phylogenetics.NMSC.Generic`, `Phylogenetics.NMSC.ChoiceMetric` and
+`Phylogenetics.ForMathlib.Analysis.AnalyticZeroSet`, which have the same names.

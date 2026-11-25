@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/vltanh/lean4-tob/actions/workflows/lean_action_ci.yml/badge.svg)](https://github.com/vltanh/lean4-tob/actions/workflows/lean_action_ci.yml)
 
-Lean 4 formalizations of the papers that infer the tree of blobs of a phylogenetic network, one repository per paper, and the library they share. This repository is their hub: it holds that library, [`TreeOfBlobs`](TreeOfBlobs), the catalog of the papers, and [`docs/REPORT.md`](docs/REPORT.md), an overview of the field and its literature. It is a hub of the collection rooted at [lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics), whose conventions every repository follows.
+Lean 4 formalizations of the papers that infer the tree of blobs of a phylogenetic network, one repository per paper, and the library they share. This repository is their hub: it holds that library, [`TreeOfBlobs`](TreeOfBlobs), the catalog of the papers, and [`docs/OVERVIEW.md`](docs/OVERVIEW.md), an overview of the field and its literature. Inferring the tree of blobs is a step of network estimation, so this hub is a sub-hub of [lean4-phylo-network](https://github.com/vltanh/lean4-phylo-network), in the collection rooted at [lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics), whose conventions every repository follows. Each paper here requires the three libraries: `Phylogenetics`, `PhyloNetwork` and `TreeOfBlobs`.
 
 ## The problem
 
@@ -10,7 +10,7 @@ A phylogenetic network on a set of taxa is a finite directed acyclic graph with 
 
 The data are gene trees, one per locus. Under the network multispecies coalescent (NMSC), each gene tree forms by coalescence inside the network, and the concordance factor of four taxa is the distribution of the three unrooted gene tree topologies on them. Allman, Baños, Mitchell and Rhodes (2023) proved that the quartet concordance factors determine the reduced unrooted tree of blobs, for generic parameters, with no bound on the level. The methods that followed estimate the concordance factors from a sample of gene trees, decide by hypothesis tests on sets of four taxa which splits are cut edges, and are consistent: they return the tree of blobs with probability tending to one as the number of gene trees grows. Later methods for the inside of the blobs, such as NANUQ⁺ and the level-1 blob reconstruction of Dai and Molloy, take the tree of blobs as input.
 
-The idea of a blob is older, and combinatorial. Gusfield, Bansal, Bafna and Song, *A decomposition theory for phylogenetic networks and incompatible characters*, [J. Comput. Biol. 14 (2007), 1247–1272](https://doi.org/10.1089/cmb.2006.0137), studied networks with recombination that derive a given set of binary sequences. Their Decomposition Theorem gives such a network whose blobs correspond to the non-trivial connected components of the incompatibility graph of the sites, and so exposes "a maximal embedded tree structure". They then ask whether a network with the fewest recombination nodes can always be taken fully decomposed, give sufficient conditions, and show that in general it can't. Allman et al. 2023 and TOB-QMC cite the paper for the tree of blobs, and no proof here uses it. It is formalized separately, in [lean4-gusfield2007](https://github.com/vltanh/lean4-gusfield2007), whose [report](https://github.com/vltanh/lean4-gusfield2007/blob/main/REPORT.md) is its audit.
+The idea of a blob is older, and combinatorial. Gusfield, Bansal, Bafna and Song, *A decomposition theory for phylogenetic networks and incompatible characters*, [J. Comput. Biol. 14 (2007), 1247–1272](https://doi.org/10.1089/cmb.2006.0137), studied networks with recombination that derive a given set of binary sequences. Their Decomposition Theorem gives such a network whose blobs correspond to the non-trivial connected components of the incompatibility graph of the sites, and so exposes "a maximal embedded tree structure". They then ask whether a network with the fewest recombination nodes can always be taken fully decomposed, give sufficient conditions, and show that in general it can't. Allman et al. 2023 and TOB-QMC cite the paper for the tree of blobs, and no proof here uses it. It is formalized separately, in [lean4-gusfield2007](https://github.com/vltanh/lean4-gusfield2007), whose [report](https://github.com/vltanh/lean4-gusfield2007/blob/main/docs/Gusfield2007/REPORT.md) is its audit.
 
 ## The papers
 
@@ -63,18 +63,18 @@ J. A. Rhodes, E. S. Allman, C. Ané, H. Baños, *Statistical inference of the Tr
 ## How the papers build on each other
 
 - TINNiK turns Allman et al. 2023 into an algorithm. Its Theorem 4 rests on the CF-detectability of 4-blobs and on the B-quartet Inference Rule, which TINNiK numbers Theorems 1 and 2.
-- TOB-QMC and ECToBlob follow one outline, concurrently and independently: an optimum of a quartet criterion refines the tree of blobs, and tests on quartets around each edge remove the false edges. Both cite Allman et al. 2023 and TINNiK. TOB-QMC applies TINNiK's tests with the levels of the proof of its Theorem 4. ECToBlob adapts Theorem 1 of Allman et al. 2023 for its Proposition 5.1. Neither formalization imports the other: what both use is in [`TreeOfBlobs/`](TreeOfBlobs).
+- TOB-QMC and ECToBlob follow one outline, concurrently and independently: an optimum of a quartet criterion refines the tree of blobs, and tests on quartets around each edge remove the false edges. Both cite Allman et al. 2023 and TINNiK. TOB-QMC applies TINNiK's tests with the levels of the proof of its Theorem 4. ECToBlob adapts Theorem 1 of Allman et al. 2023 for its Proposition 5.1. Neither formalization imports the other: what both use is in [`TreeOfBlobs/`](TreeOfBlobs), or, when papers of the rest of network estimation use it too, in [`PhyloNetwork`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork).
 - NANUQ (Allman, Baños, Rhodes 2019), a method for level-1 networks, was a cited source here; what was formalized of it now starts [lean4-nanuq](https://github.com/vltanh/lean4-nanuq), a paper of the hub on network estimation. Its formalization uses the language of Allman et al. 2023 and TINNiK's T3 test, and ECToBlob's Remark 8.3 strengthens its consistency result, as it does TINNiK's.
 
-The cited sources are proved where they are used: in the repository of the paper that cites them, or, when several papers do, in this hub's library, [`TreeOfBlobs/External/`](TreeOfBlobs/External). Each has a README that says whether its source was read. Results of these sources that no proof here uses are left out.
+The cited sources are proved where they are used: in the repository of the paper that cites them, or, when several papers do, in the library of the lowest hub above them: Mitchell et al. 2019, Rhodes 2020 and Huber et al. 2025, which papers of the rest of network estimation use too, are in the library of the hub above, [`PhyloNetwork/External/`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork/External), and NANUQ, a paper of that hub, has its own repository. Each has a README that says whether its source was read. Results of these sources that no proof uses are left out.
 
 | Source | What is proved | Cited by | Folder |
 | --- | --- | --- | --- |
-| Mitchell, Allman, Rhodes 2019 | Theorem 3.1 for the trinomial cut model; the limit laws and densities of the T3 and T1 tests (Propositions 4.1, 4.2, 5.1, 5.2) | TINNiK, TOB-QMC, ECToBlob | [`MitchellAllmanRhodes2019`](TreeOfBlobs/External/MitchellAllmanRhodes2019) |
-| Rhodes 2020 | Theorem 2: the quartet distance is a tree metric with the same topology | TINNiK, Allman et al. 2023 | [`Rhodes2020`](TreeOfBlobs/External/Rhodes2020) |
+| Mitchell, Allman, Rhodes 2019 | Theorem 3.1 for the trinomial cut model; the limit laws and densities of the T3 and T1 tests (Propositions 4.1, 4.2, 5.1, 5.2) | TINNiK, TOB-QMC, ECToBlob | [`MitchellAllmanRhodes2019`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork/External/MitchellAllmanRhodes2019) |
+| Rhodes 2020 | Theorem 2: the quartet distance is a tree metric with the same topology | TINNiK, Allman et al. 2023 | [`Rhodes2020`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork/External/Rhodes2020) |
 | Allman, Baños, Rhodes 2019 (NANUQ) | Proposition 9; Theorem 36, corrected | ECToBlob, TINNiK, Allman et al. 2023 | [`Nanuq`](https://github.com/vltanh/lean4-nanuq/tree/main/Nanuq) |
 | Ané et al. 2024 | Exchangeability across a cut edge; Proposition 12; rule 2 of its Section 3.3 | TOB-QMC, ECToBlob | [`AneEtAl2024`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC/External/AneEtAl2024) |
-| Huber et al. 2025 | Theorem 5.1, both directions | TOB-QMC | [`HuberEtAl2025`](TreeOfBlobs/External/HuberEtAl2025) |
+| Huber et al. 2025 | Theorem 5.1, both directions | TOB-QMC | [`HuberEtAl2025`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork/External/HuberEtAl2025) |
 | Dinh, Baños 2025 | Theorem 1 and Corollary 2 | TOB-QMC, ECToBlob | [`DinhBanos2025`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC/External/DinhBanos2025) |
 | Kane, Tao 2017 | The bound of Theorem 1 | TOB-QMC, through ASTRAL-III | [`KaneTao2017`](https://github.com/vltanh/lean4-tob-qmc/tree/main/TOBQMC/External/KaneTao2017) |
 | Legried et al. 2021 | Theorem 1 on quartets | ECToBlob | [`LegriedEtAl2021`](https://github.com/vltanh/lean4-ectoblob/tree/main/ECToBlob/External/LegriedEtAl2021) |
@@ -84,15 +84,15 @@ Allman et al. 2023 is both a paper of the collection and a source of the three l
 
 ## The shared library
 
-[`TreeOfBlobs`](TreeOfBlobs) holds what two papers or more use and the root library does not: hypothesis tests on
-quartet counts ([`TreeOfBlobs/Testing/`](TreeOfBlobs/Testing)), blobs of level-1 networks, networks given by tables,
-lowest common ancestors, the algorithms' common steps, analysis for Mathlib ([`TreeOfBlobs/ForMathlib/`](TreeOfBlobs/ForMathlib)),
-and the sources that several papers cite ([`TreeOfBlobs/External/`](TreeOfBlobs/External)). [Its README](TreeOfBlobs/README.md)
-lists the modules and the home each could have later. A result that one paper uses lives in that paper's repository; one
-that papers of several hubs use belongs in [lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics).
-
-Some of its declarations are still in the namespaces of the papers that first needed them (`TOBQMC.Level1`, `ECToBlob`):
-the split moved modules and renamed none.
+[`TreeOfBlobs`](TreeOfBlobs) holds what two papers or more of this hub use and no other paper of network estimation
+does: the algorithms ECToBlob, TINNiK and TOB-QMC with their standing assumptions, networks given by tables, lowest
+common ancestors, the local objective of a multifurcation, counts of tree edges, bridges by a depth-first search, and
+the analysis that only these papers use. [Its README](TreeOfBlobs/README.md) lists the modules and the papers that use
+each. What these papers share with the rest of network estimation, the hypothesis tests on quartet concordance factors,
+the blobs of level-1 networks, the cut splits of induced networks and the sources several papers cite, is in the library
+of the hub above, [`PhyloNetwork`](https://github.com/vltanh/lean4-phylo-network/tree/main/PhyloNetwork); what is
+general phylogenetics is in [lean4-phylogenetics](https://github.com/vltanh/lean4-phylogenetics). The modules of
+`TreeOfBlobs` whose content is there are deprecated, and keep the names that the papers' repositories use.
 
 ## Status
 
@@ -101,26 +101,24 @@ the split moved modules and renamed none.
   assumed. **No person has reviewed the proofs**; independent agents reviewed the statements, compared the proofs with the
   papers' and checked the audits' findings.
 - Each repository has its own audit, which checks every declaration of the repository and of the libraries it requires
-  against Lean's standard axioms, and its own route check. Both pass in each, and here.
-- Until 2026-11-21 the four papers were formalized here together; the tag `before-split` (commit `6e7bc49`) keeps that
-  layout. The split moved modules and changed no statement and no proof: every declaration kept its name and its type.
+  against Lean's standard axioms, and its own route check. Here, [`scripts/Audit.lean`](scripts/Audit.lean) checks the
+  three libraries.
 
 ## The field
 
-[`docs/REPORT.md`](docs/REPORT.md) is an overview of the research direction: the problem and its history, the four
+[`docs/OVERVIEW.md`](docs/OVERVIEW.md) is an overview of the research direction: the problem and its history, the four
 papers and how their results and methods relate, the literature before, alongside and since them, with the dates of the
-searches, the open directions that span the papers, and an index of the audits' findings.
+searches, the open directions that span the papers, and the objects that the papers share and how the formalization
+reads them.
 
 ## Credits
 
 - Requested and supervised by The-Anh Vu-Le, who chose the papers, agreed to the corrections of the statements of
-  ECToBlob, TOB-QMC and TINNiK, and decided the library's boundary and the layout. **No person has reviewed the proofs.**
+  ECToBlob, TOB-QMC and TINNiK, and decided the libraries' boundaries and the layout. **No person has reviewed the
+  proofs.**
 - Source audit and first foundations by Codex; statements, proofs, audit and documents by Claude (Opus 5.5) in Claude
   Code, with sub-agents, following the [formalize-math-paper](https://github.com/vltanh/formalize-math-paper) procedure.
-- Made on 2026-10-27 and from 2026-10-31 to 2026-11-01; arranged as a collection on 2026-11-04, when Gusfield et al.
-  2007 moved to [lean4-gusfield2007](https://github.com/vltanh/lean4-gusfield2007); split into one repository per paper
-  on 2026-11-21. [`docs/CREDITS.md`](docs/CREDITS.md) has the details, and [`docs/CONFIGURATION.md`](docs/CONFIGURATION.md)
-  the versions and decisions.
+  Each paper's repository has its credits.
 
 ## Building
 
@@ -129,22 +127,22 @@ The papers build in their own repositories. Here, the shared library:
 ```sh
 lake exe cache get
 lake build
-lake build Phylogenetics                                                         # the audit reads the whole root library
-python3 scripts/gen_audit.py                                                     # after adding a module
-lake env lean -DautoImplicit=false -DmaxSynthPendingDepth=3 scripts/Audit.lean   # axioms and routes
-python3 scripts/route_check.py check docs/paper_routes.tsv --accept docs/route_differences.tsv
+lake build Phylogenetics PhyloNetwork                                 # the audit reads the libraries it requires
+python3 scripts/gen_audit.py                                          # after adding a module
+lake env lean -Dlinter.deprecated.module=false scripts/Audit.lean     # the axioms
 ```
 
-Lean and Mathlib `v4.37.0-rc1`; [`lakefile.toml`](lakefile.toml) requires lean4-phylogenetics by commit, `b56ce53`.
+Lean and Mathlib `v4.37.0-rc1`; [`lakefile.toml`](lakefile.toml) requires lean4-phylogenetics by commit, `1d73084`,
+and lean4-phylo-network, `cf7871e`.
 
 ## Layout
 
 | Path | Contents |
 | --- | --- |
-| [`TreeOfBlobs/`](TreeOfBlobs) | The library that the papers share, with the sources that several of them cite |
+| [`TreeOfBlobs/`](TreeOfBlobs) | The library that only the papers of this hub share |
 | [`catalog/papers.toml`](catalog/papers.toml) | The papers of this hub, from which the table above is generated by lean4-phylogenetics' `scripts/status.py` |
-| [`docs/`](docs) | The overview of the field, the credits, the configuration, the records of adapted code; the routes of this library's sources |
-| [`scripts/`](scripts) | The audit and the route check |
+| [`docs/OVERVIEW.md`](docs/OVERVIEW.md) | The overview of the field |
+| [`scripts/`](scripts) | The audit and its generator, and the check of the Markdown tables |
 
 ## License
 

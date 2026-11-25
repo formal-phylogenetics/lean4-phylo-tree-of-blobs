@@ -1,8 +1,8 @@
 module
 
 public import TreeOfBlobs.Defs
-public import TreeOfBlobs.InducedSplits
-public import TreeOfBlobs.NMSCChain
+public import PhyloNetwork.InducedSplits
+public import PhyloNetwork.NMSCChain
 public import Phylogenetics.Hierarchy.Basic
 public import Phylogenetics.NMSC.DisplayedTreeModel
 public import Phylogenetics.Network.Cuts
@@ -70,7 +70,7 @@ open Phylogenetics Phylogenetics.RootedNetwork Finset Filter Topology
 
 namespace ECToBlob.FinNetwork
 
-open ECToBlob.Deterministic ECToBlob.Coarsening ECToBlob.FalseEdge ECToBlob.Section3Observations
+open PhyloNetwork ECToBlob.Section3Observations
 
 /-! ### Networks from tables -/
 

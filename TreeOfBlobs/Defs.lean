@@ -2,8 +2,8 @@ module
 
 public import Phylogenetics.Network.Quartets
 public import Phylogenetics.NMSC.Defs
-public import TreeOfBlobs.Testing.Combining
-public import TreeOfBlobs.Testing.Defs
+public import PhyloNetwork.Testing.Combining
+public import PhyloNetwork.Testing.Defs
 public import Phylogenetics.Tree.Metric
 public import Phylogenetics.Network.CutHierarchy
 
@@ -19,7 +19,8 @@ the coalescent, the statistics and the p-values are the library's.
   `ECToBlob.BinaryGeneTree`, and the sequences `ECToBlob.alphaSeq`, `ECToBlob.betaSeq` of the proof of
   Theorem 8.2.
 * TINNiK: `BInferred`, `IsMLSelection`, `testedB`, `testedT`, `tinnik`.
-* Shared by the papers: `RootedNetwork.IsParentChoice`, `NoAnomalousQuartets`, `IsT1Null`.
+* Shared by the papers: `RootedNetwork.IsParentChoice`, `NoAnomalousQuartets`. The null of the T1 test,
+  `IsT1Null`, which the hypothesis tests use too, is in `PhyloNetwork.Testing.Defs`.
 * TOB-QMC: `TOBQMC.StandardAssumptions`, `TOBQMC.IsTQuartetNonanomalous`, `TOBQMC.IsDisjointCover`,
   `TOBQMC.tobqmc`.
 -/
@@ -190,12 +191,6 @@ of [8] there are valid parameters with a cut edge and all three concordance fact
 is worked out at `ECToBlob.remark3_3_nmsc` (`src/ECToBlob/Remark33.lean`). -/
 def NoAnomalousQuartets (N : RootedNetwork V E X) (p : QuartetTree X → ℝ) : Prop :=
   ∀ s, InducedCutSplit N s → ∀ r ∈ s.alternatives, p r < p s
-
-/-- The concordance factor `p` is on the null of the T1 test for the quartet tree `s`, as a closed half-line:
-`p_s ≥ p_{s'} = p_{s''}` (Mitchell, Allman, Rhodes 2019, "Model T1"). When the three entries sum to one, this says
-`p = (1 - 2q, q, q)` with `q ≤ 1/3` (`isT1Null_iff_le_third`). -/
-def IsT1Null (p : QuartetTree X → ℝ) (s : QuartetTree X) : Prop :=
-  (∀ r ∈ s.alternatives, p r ≤ p s) ∧ ∀ r ∈ s.alternatives, ∀ r' ∈ s.alternatives, p r = p r'
 
 end NetworkConditions
 

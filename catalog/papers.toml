@@ -1,6 +1,7 @@
 # The papers of the hub lean4-tob, one repository each. The fields are those of every hub's catalog;
 # lean4-phylogenetics' docs/CONVENTIONS.md describes them, and its scripts/status.py renders the
-# README's table from this file.
+# README's table from this file. lean4-tob is a sub-hub of lean4-phylo-network, whose catalog lists
+# it: its papers require the libraries of both hubs and the root's.
 
 [[family]]
 id = 1

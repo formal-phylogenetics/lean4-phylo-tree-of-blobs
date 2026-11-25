@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Generate scripts/Audit.lean from its template, with one `import all` line per module.
 
-The modules are those of this repository and of the libraries it requires (Phylogenetics), whose proofs
-the audit must see too: the module system hides them from a plain `import`.
+The modules are those of this library and of the libraries it requires (PhyloNetwork, Phylogenetics),
+whose proofs the audit must see too: the module system hides them from a plain `import`.
 
 Run from the repository root: python3 scripts/gen_audit.py [--check]
 """
@@ -12,11 +12,12 @@ import sys
 ROOT = Path(__file__).resolve().parent.parent
 TEMPLATE = (ROOT / 'scripts' / 'Audit.lean.in').read_text()
 OWN = 'TreeOfBlobs'
-REQUIRED = {'Phylogenetics': 'Phylogenetics'}   # Lake package -> module root
+REQUIRED = {'PhyloNetwork': 'PhyloNetwork', 'Phylogenetics': 'Phylogenetics'}   # Lake package -> module root
 
 
 def modules(base, root):
-    return [str(p.relative_to(base))[:-5].replace('/', '.') for p in sorted((base / root).rglob('*.lean'))]
+    mods = [str(p.relative_to(base))[:-5].replace('/', '.') for p in sorted((base / root).rglob('*.lean'))]
+    return ([root] if (base / f'{root}.lean').is_file() else []) + mods
 
 
 def main():
