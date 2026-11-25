@@ -96,17 +96,17 @@ general phylogenetics is in [lean4-phylogenetics](https://github.com/vltanh/lean
 
 ## Status
 
-- Every numbered result of the four papers is proved, as printed or in a corrected form that the paper's report records,
+- Every numbered result of the hub's papers is proved, as printed or in a corrected form that the paper's report records,
   by the papers' arguments except the departures listed in Section 7 of each report. No result of the literature is
   assumed. **No person has reviewed the proofs**; independent agents reviewed the statements, compared the proofs with the
   papers' and checked the audits' findings.
 - Each repository has its own audit, which checks every declaration of the repository and of the libraries it requires
-  against Lean's standard axioms, and its own route check. Here, [`scripts/Audit.lean`](scripts/Audit.lean) checks the
-  three libraries.
+  against Lean's standard axioms, and its own route check. Here, [`scripts/Audit.lean`](scripts/Audit.lean) checks this
+  library and the libraries it requires.
 
 ## The field
 
-[`docs/OVERVIEW.md`](docs/OVERVIEW.md) is an overview of the research direction: the problem and its history, the four
+[`docs/OVERVIEW.md`](docs/OVERVIEW.md) is an overview of the research direction: the problem and its history, the
 papers and how their results and methods relate, the literature before, alongside and since them, with the dates of the
 searches, the open directions that span the papers, and the objects that the papers share and how the formalization
 reads them.

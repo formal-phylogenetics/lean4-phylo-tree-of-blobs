@@ -26,7 +26,7 @@ functions are in the root library `Phylogenetics`.
 `Phylogenetics.RootedNetwork`, …) and in the namespace `TreeOfBlobs`: the papers' standing assumptions
 of `Defs` (`TreeOfBlobs.StandardAssumptions`, `TreeOfBlobs.Assumption1Forward`, …), the networks of
 `FinNetwork` (`TreeOfBlobs.FinNetwork`), the counts of `TreeCounts` and `TreeOfBlobs.unitMetric`. These
-four modules also give their declarations the names that the papers' repositories use in their own
+modules also give their declarations the names that the papers' repositories use in their own
 namespaces (`ECToBlob`, `TOBQMC`, `TINNiK`): the theorems as deprecated aliases, the definitions exported
 into those namespaces, so that dot notation on their values finds the lemmas of `TreeOfBlobs`.
 
