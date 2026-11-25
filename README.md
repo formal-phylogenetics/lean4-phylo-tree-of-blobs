@@ -132,8 +132,8 @@ python3 scripts/gen_audit.py                                          # after ad
 lake env lean -Dlinter.deprecated.module=false scripts/Audit.lean     # the axioms
 ```
 
-Lean and Mathlib `v4.37.0-rc1`; [`lakefile.toml`](lakefile.toml) requires lean4-phylogenetics by commit, `1d73084`,
-and lean4-phylo-network, `cf7871e`.
+Lean and Mathlib `v4.37.0-rc1`; [`lakefile.toml`](lakefile.toml) requires lean4-phylogenetics by commit, `3fcabfd`,
+and lean4-phylo-network, `4ed2bb0`.
 
 ## Layout
 
