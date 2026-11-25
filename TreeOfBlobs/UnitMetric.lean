@@ -8,13 +8,16 @@ public import Phylogenetics.Graph.Defs
 
 `unitMetric N`: all lengths `1`, and equal inheritance probabilities at each reticulation. This shows that a statement over the valid parameters of a
 network has an instance. Only `Fintype E` is needed.
+
+The end of the file gives the declarations the names in the namespace `ECToBlob` that the papers' repositories
+use: the theorem as a deprecated alias, `unitMetric` exported into `ECToBlob`.
 -/
 
 @[expose] public noncomputable section
 
 open Phylogenetics Phylogenetics.RootedNetwork
 
-namespace ECToBlob
+namespace TreeOfBlobs
 
 variable {V E X : Type*} [Fintype E]
 
@@ -48,5 +51,15 @@ theorem isMetric_unitMetric (N : RootedNetwork V E X) : N.IsMetric (unitMetric N
     simp only [hstep]
     rw [← Finset.sum_filter, Finset.sum_const, nsmul_eq_mul, hcard]
     exact mul_one_div_cancel hne
+
+end TreeOfBlobs
+
+/-! ### The names in the papers' namespaces -/
+
+@[deprecated (since := "2026-11-25")] alias ECToBlob.isMetric_unitMetric := TreeOfBlobs.isMetric_unitMetric
+
+namespace ECToBlob
+
+export TreeOfBlobs (unitMetric)
 
 end ECToBlob

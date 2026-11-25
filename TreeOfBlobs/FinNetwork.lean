@@ -14,11 +14,11 @@ public import Phylogenetics.Network.CutHierarchy
 /-!
 # Networks given by tables of arcs, and a binary network with a 4-cycle and a cut edge
 
-`ECToBlob.FinNetwork.net src tgt root lf` is the network with the arcs `src f → tgt f`. With `Tables`, tables of what
+`TreeOfBlobs.FinNetwork.net src tgt root lf` is the network with the arcs `src f → tgt f`. With `Tables`, tables of what
 each vertex reaches and of what the root reaches off each arc, `decide` checks reachability, domination
 (`Tables.rdom_iff`), cut splits (`Tables.hasCutSplit_iff`) and the tree of blobs (`Tables.mem_treeOfBlobs_iff`).
 
-`ECToBlob.FinNetwork.Binary.net`, on the taxa `a, b, c, d, e = 0, …, 4`, is a binary network with the cut edge `de|abc`
+`TreeOfBlobs.FinNetwork.Binary.net`, on the taxa `a, b, c, d, e = 0, …, 4`, is a binary network with the cut edge `de|abc`
 and a 4-cycle through `a, b, c`; its tree of blobs has one internal edge (`Binary.mem_treeOfBlobs_iff`). A parent
 choice keeps one of the arcs `uh`, `vh` into the reticulation (`Binary.uh_or_vh`), and the quartet trees its tree
 displays follow (`Binary.displays_of_uh`, `Binary.displays_of_vh`).
@@ -26,6 +26,10 @@ displays follow (`Binary.displays_of_uh`, `Binary.displays_of_vh`).
 ECToBlob's counterexamples on the displayed tree model (`src/ECToBlob/DisplayedTreeExample.lean`) and TOB-QMC's
 at level 2 (`src/TOBQMC/SupplementLevelTwo.lean`, `src/TOBQMC/SupplementLemma2.lean`,
 `src/TOBQMC/DisplayedRefinement.lean`) use this network.
+
+The end of the file gives these declarations the names in the namespaces `ECToBlob.FinNetwork` and
+`ECToBlob.Section3Observations` that the papers' repositories use: the theorems as deprecated aliases, the
+definitions exported into those namespaces.
 -/
 
 @[expose] public noncomputable section
@@ -35,7 +39,7 @@ open scoped Classical
 section
 open Phylogenetics Phylogenetics.RootedNetwork Phylogenetics.NMSC Finset Filter Topology MeasureTheory
 
-namespace ECToBlob.Section3Observations
+namespace TreeOfBlobs
 
 variable {V E X : Type*} [Fintype V] [Fintype E] [Fintype X] [DecidableEq X]
 variable {N : RootedNetwork V E X} {θ : MetricData E} {ρ : ℝ}
@@ -62,15 +66,15 @@ theorem displays_of_cluster {c : N.ParentChoice} {s : QuartetTree X}
   rw [hAq]
   exact hP
 
-end ECToBlob.Section3Observations
+end TreeOfBlobs
 end
 
 section
 open Phylogenetics Phylogenetics.RootedNetwork Finset Filter Topology
 
-namespace ECToBlob.FinNetwork
+namespace TreeOfBlobs.FinNetwork
 
-open PhyloNetwork ECToBlob.Section3Observations
+open PhyloNetwork
 
 /-! ### Networks from tables -/
 
@@ -360,5 +364,53 @@ theorem choiceV_keeps : (9 : Fin 11) ∉ net.deletedArcs choiceV :=
 
 end Binary
 
-end ECToBlob.FinNetwork
+end TreeOfBlobs.FinNetwork
 end
+
+/-! ### The names in the papers' namespaces -/
+
+@[deprecated (since := "2026-11-25")] alias ECToBlob.Section3Observations.displays_of_cluster := TreeOfBlobs.displays_of_cluster
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.reflTransGen_iff := TreeOfBlobs.FinNetwork.reflTransGen_iff
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.desc_refl := TreeOfBlobs.FinNetwork.Tables.desc_refl
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.desc_closed := TreeOfBlobs.FinNetwork.Tables.desc_closed
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.desc_back := TreeOfBlobs.FinNetwork.Tables.desc_back
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.avoid_root := TreeOfBlobs.FinNetwork.Tables.avoid_root
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.avoid_closed := TreeOfBlobs.FinNetwork.Tables.avoid_closed
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.avoid_back := TreeOfBlobs.FinNetwork.Tables.avoid_back
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.down := TreeOfBlobs.FinNetwork.Tables.down
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.reaches_iff := TreeOfBlobs.FinNetwork.Tables.reaches_iff
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.avoidingReach_iff := TreeOfBlobs.FinNetwork.Tables.avoidingReach_iff
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.isBelow_iff := TreeOfBlobs.FinNetwork.Tables.isBelow_iff
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.dominates_iff := TreeOfBlobs.FinNetwork.Tables.dominates_iff
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.rdom_iff := TreeOfBlobs.FinNetwork.Tables.rdom_iff
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.hasCutSplit_iff := TreeOfBlobs.FinNetwork.Tables.hasCutSplit_iff
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Tables.mem_treeOfBlobs_iff := TreeOfBlobs.FinNetwork.Tables.mem_treeOfBlobs_iff
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.isPhylogenetic_of_down := TreeOfBlobs.FinNetwork.isPhylogenetic_of_down
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.notMem_deletedArcs_of_unique := TreeOfBlobs.FinNetwork.notMem_deletedArcs_of_unique
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Binary.tables := TreeOfBlobs.FinNetwork.Binary.tables
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Binary.net_isPhylogenetic := TreeOfBlobs.FinNetwork.Binary.net_isPhylogenetic
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Binary.net_isBinary := TreeOfBlobs.FinNetwork.Binary.net_isBinary
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Binary.mem_treeOfBlobs_iff := TreeOfBlobs.FinNetwork.Binary.mem_treeOfBlobs_iff
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Binary.displays_of_uh := TreeOfBlobs.FinNetwork.Binary.displays_of_uh
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Binary.displays_of_vh := TreeOfBlobs.FinNetwork.Binary.displays_of_vh
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Binary.uh_or_vh := TreeOfBlobs.FinNetwork.Binary.uh_or_vh
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Binary.choiceU_keeps := TreeOfBlobs.FinNetwork.Binary.choiceU_keeps
+@[deprecated (since := "2026-11-25")] alias ECToBlob.FinNetwork.Binary.choiceV_keeps := TreeOfBlobs.FinNetwork.Binary.choiceV_keeps
+
+namespace ECToBlob.FinNetwork
+
+export TreeOfBlobs.FinNetwork (net Tables RDomT SepT)
+
+end ECToBlob.FinNetwork
+
+namespace ECToBlob.FinNetwork.Tables
+
+export TreeOfBlobs.FinNetwork.Tables (mk)
+
+end ECToBlob.FinNetwork.Tables
+
+namespace ECToBlob.FinNetwork.Binary
+
+export TreeOfBlobs.FinNetwork.Binary (src tgt lf desc avoid net parentOf choiceU choiceV)
+
+end ECToBlob.FinNetwork.Binary

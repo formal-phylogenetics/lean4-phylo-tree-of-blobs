@@ -11,7 +11,7 @@ functions are in the root library `Phylogenetics`.
 
 | Module | Content | Used by |
 | --- | --- | --- |
-| `Defs` | The definitions specific to the papers: the algorithms ECToBlob, TINNiK and TOB-QMC with their options and steps, and the papers' standing assumptions (`NoAnomalousQuartets`, `RootedNetwork.IsParentChoice`, `TOBQMC.StandardAssumptions`, …) | Allman et al. 2023, TINNiK, TOB-QMC, ECToBlob |
+| `Defs` | The definitions specific to the papers: the algorithms ECToBlob, TINNiK and TOB-QMC with their options and steps, and the papers' standing assumptions (`NoAnomalousQuartets`, `RootedNetwork.IsParentChoice`, `TreeOfBlobs.StandardAssumptions`, …) | Allman et al. 2023, TINNiK, TOB-QMC, ECToBlob |
 | `FinNetwork` | Networks given by tables of arcs, checked by `decide`, and the binary network with a 4-cycle and a cut edge that the counterexamples of ECToBlob and TOB-QMC use | TOB-QMC, ECToBlob |
 | `LocalObjective` | The local objective at a multifurcation of ECToBlob's Theorem 3.1: attaching subtrees, sums over representatives | TOB-QMC, ECToBlob |
 | `RhoOne` | No anomalous quartets at `ρ = 1`: the strict form of Proposition 12 of Ané et al. 2024 | TOB-QMC, ECToBlob |
@@ -22,11 +22,13 @@ functions are in the root library `Phylogenetics`.
 | `ForMathlib/Analysis/FiniteOptimization`, `ForMathlib/Analysis/SpecialFunctions/GibbsInequality` | Analysis that does not mention phylogenetics: optimization over finite sets, Gibbs' inequality | ECToBlob; TINNiK |
 
 `TreeOfBlobs` imports no paper: its [`lakefile.toml`](../lakefile.toml) requires only
-`Phylogenetics` and `PhyloNetwork`. Most declarations are in the root's namespaces (`Phylogenetics`,
-`Phylogenetics.RootedNetwork`, …). Some are in the namespace of the paper that first needed them
-(`TOBQMC`, `ECToBlob`, `TINNiK`), which the conventions of the collection do not allow in a hub's
-library (lean4-phylogenetics, `docs/CONVENTIONS.md`, Section 3): renaming them is a change of its
-own, with deprecated aliases.
+`Phylogenetics` and `PhyloNetwork`. Its declarations are in the root's namespaces (`Phylogenetics`,
+`Phylogenetics.RootedNetwork`, …) and in the namespace `TreeOfBlobs`: the papers' standing assumptions
+of `Defs` (`TreeOfBlobs.StandardAssumptions`, `TreeOfBlobs.Assumption1Forward`, …), the networks of
+`FinNetwork` (`TreeOfBlobs.FinNetwork`), the counts of `TreeCounts` and `TreeOfBlobs.unitMetric`. These
+four modules also give their declarations the names that the papers' repositories use in their own
+namespaces (`ECToBlob`, `TOBQMC`, `TINNiK`): the theorems as deprecated aliases, the definitions exported
+into those namespaces, so that dot notation on their values finds the lemmas of `TreeOfBlobs`.
 
 The modules `Testing/*`, `External/*`, `Level1Blobs`, `Level1Blocks`, `Level1CF`, `Wedge`,
 `InducedSplits`, `NMSCChain`, `ForMathlib/Analysis/SpecialFunctions/{EntropyExcess, Erf}` and

@@ -233,7 +233,7 @@ meta def mainResults : List (String × Name) :=
    ("Attaching subtrees at a multifurcation gives an unrooted tree",
     ``Phylogenetics.attachSubtrees_isUnrootedTree),
    ("No anomalous quartets at rho = 1", ``Phylogenetics.RootedNetwork.nmscCF_lt_rho_one_of_displays),
-   ("The number of internal edges of a binary tree", ``TOBQMC.card_internalSides)]
+   ("The number of internal edges of a binary tree", ``TreeOfBlobs.card_internalSides)]
 
 /-- Lean's standard axioms. -/
 meta def standardAxioms : List Name := [``propext, ``Classical.choice, ``Quot.sound]

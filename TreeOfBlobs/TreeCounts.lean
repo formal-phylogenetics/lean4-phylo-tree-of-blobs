@@ -9,10 +9,14 @@ public import Phylogenetics.Network.CutHierarchy
 
 Counts that the running times of TINNiK, TOB-QMC and ECToBlob use.
 
-* A hierarchy has one more cluster than the sum of the numbers of children (`TINNiK.sum_card_childClusters`), and
-  as many singletons as taxa (`TINNiK.card_filter_not_two_le`), so a binary hierarchy has `2n - 1` clusters
-  (`TOBQMC.card_add_one_of_binary`) and an unrooted tree at most `2n - 3` sides (`TINNiK.card_le_of_isUnrootedTree`).
-* A binary tree on `n ≥ 3` taxa has `n - 3` internal edges (`TOBQMC.card_internalSides`, `TOBQMC.card_edgeSides`).
+* A hierarchy has one more cluster than the sum of the numbers of children (`sum_card_childClusters`), and
+  as many singletons as taxa (`card_filter_not_two_le`), so a binary hierarchy has `2n - 1` clusters
+  (`card_add_one_of_binary`) and an unrooted tree at most `2n - 3` sides (`card_le_of_isUnrootedTree`).
+* A binary tree on `n ≥ 3` taxa has `n - 3` internal edges (`card_internalSides`, `card_edgeSides`).
+
+The declarations are in the namespace `TreeOfBlobs`. The end of the file gives them the names in the
+namespaces `TINNiK` and `TOBQMC` that the papers' repositories use: the theorems as deprecated aliases,
+`edgeSides` exported into `TOBQMC`.
 -/
 
 @[expose] public noncomputable section
@@ -22,7 +26,7 @@ open scoped Classical
 section
 open Phylogenetics Finset
 
-namespace TINNiK
+namespace TreeOfBlobs
 
 variable {X : Type*} [Fintype X] [DecidableEq X]
 
@@ -102,17 +106,15 @@ theorem card_le_of_isUnrootedTree {T : Finset (Finset X)} (hT : IsUnrootedTree T
 
 end Trees
 
-end TINNiK
+end TreeOfBlobs
 end
 
 section
 open Phylogenetics Phylogenetics.RootedNetwork Finset
 
-namespace TOBQMC
+namespace TreeOfBlobs
 
 variable {V E X : Type*} [Fintype X] [DecidableEq X]
-
-namespace Level1
 
 /-- The sides of an unrooted tree are nonempty and proper. -/
 theorem nonempty_of_mem_isUnrootedTree {B : Finset (Finset X)} (hB : IsUnrootedTree B)
@@ -130,8 +132,6 @@ theorem nonempty_of_mem_isUnrootedTree {B : Finset (Finset X)} (hB : IsUnrootedT
     obtain ⟨h1, h2⟩ := key C hC
     exact ⟨h2, by rwa [compl_compl]⟩
 
-end Level1
-
 section Edges
 
 variable {H : Finset (Finset X)}
@@ -139,9 +139,9 @@ variable {H : Finset (Finset X)}
 /-- A binary hierarchy has exactly `N - 1` clusters of at least two taxa, and `2 N - 1` clusters. -/
 theorem card_add_one_of_binary (hH : IsHierarchy H) (hbin : ∀ A ∈ H, 2 ≤ A.card → (childClusters H A).card = 2) :
     H.card + 1 = 2 * Fintype.card X := by
-  have hsum := TINNiK.sum_card_childClusters hH
+  have hsum := sum_card_childClusters hH
   have htot := card_filter_add_card_filter_not (s := H) (fun A : Finset X => 2 ≤ A.card)
-  rw [TINNiK.card_filter_not_two_le hH] at htot
+  rw [card_filter_not_two_le hH] at htot
   have hsplit := sum_filter_add_sum_filter_not H (fun A : Finset X => 2 ≤ A.card)
     (fun A => (childClusters H A).card)
   have h₁ : ∑ A ∈ H.filter (fun A : Finset X => 2 ≤ A.card), (childClusters H A).card =
@@ -241,7 +241,7 @@ theorem card_internalSides {T : Finset (Finset X)} (hT : IsBinaryTree T) (h3 : 3
     simp only [mem_filter, mem_union, mem_image, mem_univ, true_and]
     constructor
     · rintro ⟨hA, hsmall⟩
-      obtain ⟨hne, hne'⟩ := Level1.nonempty_of_mem_isUnrootedTree hTu hA
+      obtain ⟨hne, hne'⟩ := nonempty_of_mem_isUnrootedTree hTu hA
       have h₁ := card_pos.mpr hne
       have h₂ := card_pos.mpr hne'
       by_cases hc : A.card = 1
@@ -319,5 +319,26 @@ theorem card_biUnion_edgeSides_le {T : Finset (Finset X)} (hT : IsBinaryTree T) 
 
 end Edges
 
-end TOBQMC
+end TreeOfBlobs
 end
+
+/-! ### The names in the papers' namespaces -/
+
+@[deprecated (since := "2026-11-25")] alias TINNiK.sum_card_childClusters := TreeOfBlobs.sum_card_childClusters
+@[deprecated (since := "2026-11-25")] alias TINNiK.card_filter_not_two_le := TreeOfBlobs.card_filter_not_two_le
+@[deprecated (since := "2026-11-25")] alias TINNiK.card_filter_two_le_add_one_le := TreeOfBlobs.card_filter_two_le_add_one_le
+@[deprecated (since := "2026-11-25")] alias TINNiK.card_add_one_le_of_isHierarchy := TreeOfBlobs.card_add_one_le_of_isHierarchy
+@[deprecated (since := "2026-11-25")] alias TINNiK.card_le_of_isUnrootedTree := TreeOfBlobs.card_le_of_isUnrootedTree
+@[deprecated (since := "2026-11-25")] alias TOBQMC.Level1.nonempty_of_mem_isUnrootedTree := TreeOfBlobs.nonempty_of_mem_isUnrootedTree
+@[deprecated (since := "2026-11-25")] alias TOBQMC.card_add_one_of_binary := TreeOfBlobs.card_add_one_of_binary
+@[deprecated (since := "2026-11-25")] alias TOBQMC.mem_childClusters_univ_iff := TreeOfBlobs.mem_childClusters_univ_iff
+@[deprecated (since := "2026-11-25")] alias TOBQMC.card_of_isBinaryTree := TreeOfBlobs.card_of_isBinaryTree
+@[deprecated (since := "2026-11-25")] alias TOBQMC.card_internalSides := TreeOfBlobs.card_internalSides
+@[deprecated (since := "2026-11-25")] alias TOBQMC.card_edgeSides := TreeOfBlobs.card_edgeSides
+@[deprecated (since := "2026-11-25")] alias TOBQMC.card_biUnion_edgeSides_le := TreeOfBlobs.card_biUnion_edgeSides_le
+
+namespace TOBQMC
+
+export TreeOfBlobs (edgeSides)
+
+end TOBQMC

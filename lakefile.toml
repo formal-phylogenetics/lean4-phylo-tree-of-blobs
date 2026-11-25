@@ -1,5 +1,5 @@
 name = "TreeOfBlobs"
-version = "0.3.0"
+version = "0.3.1"
 keywords = ["math", "phylogenetics"]
 description = "What only the formalizations of the tree-of-blobs papers share: their algorithms and standing assumptions, networks given by tables, lowest common ancestors, and the analysis only they use"
 defaultTargets = ["TreeOfBlobs"]

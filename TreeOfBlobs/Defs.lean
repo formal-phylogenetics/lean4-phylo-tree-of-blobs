@@ -15,14 +15,18 @@ algorithms with their options and steps, and the papers' standing assumptions. N
 the coalescent, the statistics and the p-values are the library's.
 
 * ECToBlob: `QuartetType`, `SelectionRule`, `ECToBlobOptions`, the steps of Algorithm 7.1 from `edgeStarP`
-  to `selectedIteration`, and `ectoblob`; `ECToBlob.Assumption1Forward`, `ECToBlob.Assumption1Converse`,
-  `ECToBlob.BinaryGeneTree`, and the sequences `ECToBlob.alphaSeq`, `ECToBlob.betaSeq` of the proof of
-  Theorem 8.2.
+  to `selectedIteration`, and `ectoblob`; its Assumption 1, `TreeOfBlobs.Assumption1Forward` and
+  `TreeOfBlobs.Assumption1Converse`, `TreeOfBlobs.BinaryGeneTree`, and the sequences `TreeOfBlobs.alphaSeq`,
+  `TreeOfBlobs.betaSeq` of the proof of its Theorem 8.2.
 * TINNiK: `BInferred`, `IsMLSelection`, `testedB`, `testedT`, `tinnik`.
 * Shared by the papers: `RootedNetwork.IsParentChoice`, `NoAnomalousQuartets`. The null of the T1 test,
   `IsT1Null`, which the hypothesis tests use too, is in `PhyloNetwork.Testing.Defs`.
-* TOB-QMC: `TOBQMC.StandardAssumptions`, `TOBQMC.IsTQuartetNonanomalous`, `TOBQMC.IsDisjointCover`,
-  `TOBQMC.tobqmc`.
+* TOB-QMC: its standard assumptions `TreeOfBlobs.StandardAssumptions`, `TreeOfBlobs.IsTQuartetNonanomalous`,
+  `TreeOfBlobs.IsDisjointCover`, and the method's output `TreeOfBlobs.tobqmc`.
+
+The end of the file gives these declarations the names in the namespaces `ECToBlob` and `TOBQMC` that the
+papers' repositories use: the theorems as deprecated aliases, the definitions exported into those
+namespaces, so that dot notation on their values finds the lemmas of `TreeOfBlobs`.
 -/
 
 @[expose] public noncomputable section
@@ -196,9 +200,11 @@ end NetworkConditions
 
 end Phylogenetics
 
-namespace ECToBlob
+namespace TreeOfBlobs
 
 open Phylogenetics Phylogenetics.RootedNetwork
+
+section ECToBlob
 
 variable {V E X : Type*} [Fintype X] [DecidableEq X]
 
@@ -228,9 +234,7 @@ def betaSeq (n : ℕ) : ℝ := chiSqTwoTail (Real.log n)
 
 end ECToBlob
 
-namespace TOBQMC
-
-open Phylogenetics Phylogenetics.RootedNetwork
+section TOBQMC
 
 variable {V E X : Type*} [Fintype X] [DecidableEq X]
 
@@ -264,3 +268,54 @@ def tobqmc (ml : (QuartetTree X → ℝ) → Finset X → QuartetTree X) (α β 
   contractSides B ((internalSides B).filter fun A => ∃ Y ∈ Q A, Y ∈ testedB ml α β c)
 
 end TOBQMC
+
+end TreeOfBlobs
+
+/-! ### The names in the papers' namespaces -/
+
+@[deprecated (since := "2026-11-25")] alias ECToBlob.Assumption1Forward.star := TreeOfBlobs.Assumption1Forward.star
+@[deprecated (since := "2026-11-25")] alias ECToBlob.Assumption1Forward.t1 := TreeOfBlobs.Assumption1Forward.t1
+@[deprecated (since := "2026-11-25")] alias ECToBlob.Assumption1Converse.star := TreeOfBlobs.Assumption1Converse.star
+@[deprecated (since := "2026-11-25")] alias ECToBlob.Assumption1Converse.t1 := TreeOfBlobs.Assumption1Converse.t1
+@[deprecated (since := "2026-11-25")] alias TOBQMC.StandardAssumptions.phylogenetic := TreeOfBlobs.StandardAssumptions.phylogenetic
+@[deprecated (since := "2026-11-25")] alias TOBQMC.StandardAssumptions.binary := TreeOfBlobs.StandardAssumptions.binary
+@[deprecated (since := "2026-11-25")] alias TOBQMC.StandardAssumptions.metric := TreeOfBlobs.StandardAssumptions.metric
+@[deprecated (since := "2026-11-25")] alias TOBQMC.StandardAssumptions.rho := TreeOfBlobs.StandardAssumptions.rho
+@[deprecated (since := "2026-11-25")] alias TOBQMC.IsDisjointCover.around := TreeOfBlobs.IsDisjointCover.around
+@[deprecated (since := "2026-11-25")] alias TOBQMC.IsDisjointCover.cover := TreeOfBlobs.IsDisjointCover.cover
+
+namespace ECToBlob
+
+export TreeOfBlobs (Assumption1Forward Assumption1Converse BinaryGeneTree alphaSeq betaSeq)
+
+end ECToBlob
+
+namespace ECToBlob.Assumption1Forward
+
+export TreeOfBlobs.Assumption1Forward (mk)
+
+end ECToBlob.Assumption1Forward
+
+namespace ECToBlob.Assumption1Converse
+
+export TreeOfBlobs.Assumption1Converse (mk)
+
+end ECToBlob.Assumption1Converse
+
+namespace TOBQMC
+
+export TreeOfBlobs (StandardAssumptions IsTQuartetNonanomalous IsDisjointCover tobqmc)
+
+end TOBQMC
+
+namespace TOBQMC.StandardAssumptions
+
+export TreeOfBlobs.StandardAssumptions (mk)
+
+end TOBQMC.StandardAssumptions
+
+namespace TOBQMC.IsDisjointCover
+
+export TreeOfBlobs.IsDisjointCover (mk)
+
+end TOBQMC.IsDisjointCover
