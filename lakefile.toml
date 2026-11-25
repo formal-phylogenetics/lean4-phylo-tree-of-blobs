@@ -13,7 +13,7 @@ maxSynthPendingDepth = 3
 [[require]]
 name = "Phylogenetics"
 git = "https://github.com/vltanh/lean4-phylogenetics"
-rev = "4daee158d74436ce6ed6f52e337ba00f1b43ea32"
+rev = "b56ce531644230622f069aaa8aa51a5143c1411e"
 
 [[require]]
 name = "mathlib"

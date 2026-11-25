@@ -135,7 +135,7 @@ lake env lean -DautoImplicit=false -DmaxSynthPendingDepth=3 scripts/Audit.lean  
 python3 scripts/route_check.py check docs/paper_routes.tsv --accept docs/route_differences.tsv
 ```
 
-Lean and Mathlib `v4.37.0-rc1`; [`lakefile.toml`](lakefile.toml) requires lean4-phylogenetics by commit, `4daee15`.
+Lean and Mathlib `v4.37.0-rc1`; [`lakefile.toml`](lakefile.toml) requires lean4-phylogenetics by commit, `b56ce53`.
 
 ## Layout
 

@@ -58,7 +58,7 @@ License: Apache-2.0. Git identity: The-Anh Vu-Le. AI systems are credited as too
 
 On 2026-10-31 the user asked this project to import the library [`lean4-phylogenetics`](https://github.com/vltanh/lean4-phylogenetics), which holds definitions and general results, in place of its own general layer. What the papers prove stays in this hub and the papers' repositories: `TreeOfBlobs/Defs.lean` has the algorithms and the standing assumptions, `TreeOfBlobs/Testing/` and `TreeOfBlobs/ForMathlib/` have the hypothesis tests and the analysis behind them, the papers' libraries have their results, and `TreeOfBlobs/External/` and the papers' `External/` folders have what they cite from other papers. `TreeOfBlobs/General.lean` has general results that can move to the library.
 
-The library is required by commit, `4daee15`, from GitHub (`lakefile.toml`). `lake build` builds only the modules of the library that this repository imports; the audit reads all of them, so it also needs `lake build Phylogenetics`.
+The library is required by commit, `b56ce53`, from GitHub (`lakefile.toml`). `lake build` builds only the modules of the library that this repository imports; the audit reads all of them, so it also needs `lake build Phylogenetics`.
 
 ## Palomar
 
