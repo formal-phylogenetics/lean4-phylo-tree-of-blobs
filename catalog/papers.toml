@@ -18,7 +18,7 @@ url = "https://doi.org/10.1007/s00285-022-01838-9"
 kind = "theory"
 root = "Allman2023"
 status = "formalized"
-commit = "02cb373efa5c085530cc9b862c017184ed850e39"
+commit = "46efa61d0988df12649089689ae77bc100be034f"
 
 [[paper]]
 id = "tinnik"
