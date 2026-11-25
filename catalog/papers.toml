@@ -32,7 +32,7 @@ url = "https://doi.org/10.1186/s13015-024-00266-2"
 kind = "method"
 root = "Tinnik"
 status = "formalized"
-commit = "eac0722efcb6adbf8e3310dba9e5613868c1b618"
+commit = "de514e1f14522531f16dcdfa12244fe72fe05944"
 builds_on = ["allman2023"]
 
 [[paper]]
