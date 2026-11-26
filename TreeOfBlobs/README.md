@@ -1,8 +1,8 @@
 # What only the papers on the tree of blobs share
 
-The library of this sub-hub: what two or more of its papers use and no paper of the rest of network
-estimation does. What they share with the other papers on network estimation is in the library of
-the hub above,
+The library of this repository: what two or more of the papers on the tree of blobs use and no other
+paper on network estimation does. What they share with the other papers on network estimation is in
+the library of their hub,
 [`PhyloNetwork`](https://github.com/formal-phylogenetics/lean4-phylo-network/tree/main/PhyloNetwork):
 the hypothesis tests on quartet concordance factors, the T1 and T3 tests of Mitchell, Allman, Rhodes
 2019, blobs, blocks and wedge paths of level-1 networks, cut splits of induced networks, the chain
